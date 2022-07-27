@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('pkmcenter')->namespace('PKM')->middleware(['auth', 'role:User', 'verified'])->group(function () {
-    Route::get('/', 'BerandaController@index')->name('pkm-center');
+    Route::get('/', 'BerandaController@index')->name('pkmcenter');
     Route::get('detail/{slug}', 'BerandaController@show')->name('beranda-detail');
 
     Route::resource('profil', 'ProfilController');

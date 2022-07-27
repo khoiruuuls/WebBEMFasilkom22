@@ -12,6 +12,7 @@ Route::prefix('aplikasi')->namespace('Aplikasi')->group(function () {
     Route::get('mading', 'MadingController@index')->name('mading');
     Route::get('foto-kegiatan', 'FotoKegiatanController@index')->name('foto-kegiatan');
     Route::get('merchandise', 'MerchController@index')->name('merchandise');
+    Route::get('pkm-center', 'PkmCenterController@index')->name('pkm-center');
     Route::get('info-kajian', 'InfoKajianController@index')->name('info-kajian');
     Route::get('karya-tulis', 'KaryaTulisController@index')->name('karya-tulis');
     Route::get('fasilkom-event', 'EventController@index')->name('event');
