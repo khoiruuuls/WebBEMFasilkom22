@@ -32,7 +32,7 @@ class RedirectIfAuthenticated
                 if ($user->hasAnyRole('Admin', 'Humas', 'Operator')) {
                     return redirect('admin');
                 } elseif ($user->hasRole('User')) {
-                    return redirect()->route('pkm-centre');
+                    return redirect()->route('pkm-center');
                 }
 
                 // return redirect(RouteServiceProvider::HOME);
