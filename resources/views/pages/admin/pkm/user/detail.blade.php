@@ -110,7 +110,7 @@
                         <td>{{ $proposal->jenis }}</td>
                         <td>
                           @if ($proposal->path)
-                            <a href="{{ route('pengusul.show-pdf', $proposal->id) }}" class="embed-link" target="_blank">
+                            <a href="{{ asset('storage/' . $proposal->path) }}" class="embed-link" target="_blank">
                               <img src="{{ asset('pkm/assets/img/icon-pdf.png') }}" alt="{{ $proposal->judul }}" class="img-fluid pdf">
                             </a>
                           @endif
