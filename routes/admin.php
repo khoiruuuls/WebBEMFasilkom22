@@ -90,7 +90,7 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'role:Admin|Huma
         Route::get('tugas-kelompok/{id}/delete', 'TugasKelompokController@destroy')->name('tugas-kelompok.delete');
     });
 
-    Route::prefix('pkm-centre')->group(function () {
+    Route::prefix('pkm-center')->group(function () {
         // Program
         Route::resource('program', 'ProgramController');
         Route::get('program/{id}/delete', 'ProgramController@destroy')->name('program.delete');

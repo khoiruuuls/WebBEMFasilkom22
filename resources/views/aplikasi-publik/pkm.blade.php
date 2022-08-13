@@ -5,7 +5,7 @@ PKM Centre Fasilkom | Kabinet Arthasastra
 @endsection
 
 @section('content')
-<section id="pkm-centre" class="pkm-centre" style="margin-top: 100px">
+<section id="pkm-center" class="pkm-center" style="margin-top: 100px">
     <div class="row mt-4 text-center">
         <div class="col-md-12 d-flex justify-content-center">
             <img src="{{ url('frontend/assets/img/centre.svg') }}" style="width: 40%;">

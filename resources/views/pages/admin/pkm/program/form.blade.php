@@ -46,7 +46,7 @@
                   <div class="form-group row mb-4">
                     {!! Form::label('konten', 'Konten', ['class' => 'col-form-label text-md-right col-12 col-md-3 col-lg-3']) !!}
                     <div class="col-sm-12 col-md-7">
-                      {!! Form::textarea('konten', null, ['class' => 'summernote-simple']) !!}
+                      {!! Form::textarea('konten', null, ['class' => 'summernote']) !!}
                     </div>
                   </div>
 

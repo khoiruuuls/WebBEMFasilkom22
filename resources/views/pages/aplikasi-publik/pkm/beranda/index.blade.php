@@ -58,14 +58,14 @@
             @forelse ($pengumumans as $pengumuman)
               <div class="item">
                 <div class="card">
-                  <a href="{{ route('beranda-detail', $pengumuman->slug) }}">
+                  <a href="{{ route('pengumuman-detail', $pengumuman->slug) }}">
                     <img src="{{ (empty($pengumuman->path) ? asset('pkm/assets/img/news/img13.jpg') : asset('storage/' . $pengumuman->path)) }}" alt="" class="card-img-top">
                   </a>
                   <div class="card-body">
                     <h5 class="card-title">{{ $pengumuman->judul }}</h5>
                     <p class="text-muted">{{ \Carbon\Carbon::parse($pengumuman->tanggal)->translatedFormat('d F Y') }}</p>
                     <p class="card-text">{!! Str::limit($pengumuman->konten, 50) !!}</p>
-                    <a href="{{ route('beranda-detail', $pengumuman->slug) }}" class="float-right">Read More <i class="fas fa-chevron-right"></i></a>
+                    <a href="{{ route('pengumuman-detail', $pengumuman->slug) }}" class="float-right">Read More <i class="fas fa-chevron-right"></i></a>
                   </div>
                 </div>
               </div>

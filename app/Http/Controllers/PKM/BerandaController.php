@@ -64,19 +64,30 @@ class BerandaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show_program($slug)
     {
         $program = Program::where('slug', $slug)->first();
-        $pengumuman = Pengumuman::where('slug', $slug)->first();
 
-        if (!$program && !$pengumuman) {
+        if (!$program) {
             return redirect()->route('beranda');
         }
 
         $this->data['program'] = $program;
-        $this->data['pengumuman'] = $pengumuman;
 
         return view('pages.aplikasi-publik.pkm.beranda.detail', $this->data);
+    }
+
+    public function show_pengumuman($slug)
+    {
+        $pengumuman = Pengumuman::where('slug', $slug)->first();
+
+        if (!$pengumuman) {
+            return redirect()->route('beranda');
+        }
+
+        $this->data['pengumuman'] = $pengumuman;
+
+        return view('pages.aplikasi-publik.pkm.beranda.pengumuman.detail', $this->data);
     }
 
     /**

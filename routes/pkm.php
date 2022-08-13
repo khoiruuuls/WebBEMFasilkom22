@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('pkmcenter')->namespace('PKM')->middleware(['auth', 'role:User', 'verified'])->group(function () {
+Route::prefix('pkm-center')->namespace('PKM')->middleware(['auth', 'role:User', 'verified'])->group(function () {
     Route::get('/', 'BerandaController@index')->name('pkm-center');
-    Route::get('detail/{slug}', 'BerandaController@show')->name('beranda-detail');
+    Route::get('detail program/{slug}', 'BerandaController@show_program')->name('beranda-detail');
+    Route::get('detail pengumuman/{slug}', 'BerandaController@show_pengumuman')->name('pengumuman-detail');
 
     Route::resource('profil', 'ProfilController');
     Route::put('profil', 'ProfilController@change')->name('profil.change');
