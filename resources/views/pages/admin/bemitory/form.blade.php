@@ -6,10 +6,10 @@
 
 @section('content')
   @php
-      $formTitle = !empty($report) ? 'Edit' : 'Tambah';
-      $formButton = !empty($report) ? 'Edit' : 'Tambah';
+      $formTitle = !empty($bemitory) ? 'Edit' : 'Tambah';
+      $formButton = !empty($bemitory) ? 'Edit' : 'Tambah';
   @endphp
-
+  
   <div class="main-content">
     <section class="section">
       <div class="section-header">
@@ -26,58 +26,59 @@
               <h4>{{ $formTitle }} Inventory BEM</h4>
             </div>
             <div class="card-body">
-              @if (!empty($report))
-                {!! Form::model($report, ['route' => ['bemitory.update', $report->id], 'method' => 'PUT', 'class' => 'needs-validation', 'novalidate']) !!}
-                {!! Form::hidden('id') !!}
-              @else
-                {!! Form::open(['route' => 'bemitory.store', 'class' => 'needs-validation', 'novalidate' => '']) !!}
-              @endif
-              <div class="row">
-                <div class="col-12">
-                  <div class="form-group row mb-4">
-                    {!! Form::label('nama', 'Nama Advokasi', ['class' => 'col-form-label text-md-right col-12 col-md-3 col-lg-3']) !!}
-                    <div class="col-sm-12 col-md-7">
-                      {!! Form::text('nama', null, ['class' => 'form-control', 'required' => '']) !!}
-                      <div class="invalid-feedback">
-                        Judul harus diisi.
-                      </div>
-                    </div>
-                  </div>
+              @if (!empty($bemitory))
+              {!! Form::model($bemitory, ['route' => ['bemitory.update', $bemitory->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data', 'class' => 'needs-validation', 'novalidate' => '']) !!}
+              {!! Form::hidden('id') !!}
+            @else
+              {!! Form::open(['route' => 'bemitory.store', 'enctype' => 'multipart/form-data', 'class' => 'needs-validation', 'novalidate' => '']) !!}
+            @endif
+                    <div class="col-lg-12">
+                        <h4>Input Barang</h4>
+                        <hr>
+            
+                            <div class="row">
+                              <div class="col-12">
+                                <div class="form-group row mb-4">
+                                  {!! Form::label('kode_barang', 'Kode Barang', ['class' => 'col-form-label text-md-right col-12 col-md-3 col-lg-3']) !!}
+                                  <div class="col-sm-12 col-md-7">
+                                    {!! Form::text('kode_barang', null, ['class' => 'form-control', 'required' => '']) !!}
+                                    <div class="invalid-feedback">
+                                      Kode  Barang harus diisi.
+                                    </div>
+                                  </div>
+                                </div>
 
-                  <div class="form-group row mb-4">
-                    {!! Form::label('deskripsi', 'Deskripsi', ['class' => 'col-form-label text-md-right col-12 col-md-3 col-lg-3']) !!}
-                    <div class="col-sm-12 col-md-7">
-                      {!! Form::textarea('deskripsi', null, ['class' => 'summernote-simple']) !!}
+                                <div class="form-group row mb-4">
+                                  {!! Form::label('barang', 'Barang', ['class' => 'col-form-label text-md-right col-12 col-md-3 col-lg-3']) !!}
+                                  <div class="col-sm-12 col-md-7">
+                                    {!! Form::text('barang', null, ['class' => 'form-control', 'required' => '']) !!}
+                                    <div class="invalid-feedback">
+                                      Kode  Barang harus diisi.
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row mb-4">
+                                  {!! Form::label('jumlah', 'Jumlah', ['class' => 'col-form-label text-md-right col-12 col-md-3 col-lg-3']) !!}
+                                  <div class="col-sm-12 col-md-7">
+                                    {!! Form::number('jumlah', null, ['class' => 'form-control', 'required' => '']) !!}
+                                    <div class="invalid-feedback">
+                                      Kode  Barang harus diisi.
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row mb-4">
+                                  {!! Form::label('status_barang', 'Status', ['class' => 'col-form-label text-md-right col-12 col-md-3 col-lg-3']) !!}
+                                  <div class="col-sm-12 col-md-7">
+                                    {!! Form::select('status_barang',array('Tersedia'=>'Tersedia','Kosong'=>'Kosong'), ['class' => 'form-control selectric', 'placeholder' => 'Pilih Status']) !!}
+                                </div>
+                              </div>
+                              
+                              <button type="submit" class="btn btn-primary">{{ $formButton }}</button>
+                          </form>
                     </div>
-                  </div>
-
-                  <div class="form-group row mb-4">
-                    {!! Form::label('keterangan', 'Keterangan', ['class' => 'col-form-label text-md-right col-12 col-md-3 col-lg-3']) !!}
-                    <div class="col-sm-12 col-md-7">
-                      {!! Form::textarea('keterangan', null, ['class' => 'summernote-simple']) !!}
-                    </div>
-                  </div>
-                  
-                  <div class="form-group row mb-4">
-                    {!! Form::label('status', 'Status', ['class' => 'col-form-label text-md-right col-12 col-md-3 col-lg-3']) !!}
-                    <div class="col-sm-12 col-md-7">
-                      {!! Form::select('status', $status, null, ['class' => 'form-control selectric', 'placeholder' => 'Pilih Status']) !!}
-                    </div>
-                  </div>
-
-                  <div class="form-group row mb-4">
-                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
-                    <div class="col-sm-12 col-md-7">
-                      <button type="submit" class="btn btn-primary">{{ $formButton }}</button>
-                    </div>
-                  </div>
                 </div>
-              </div>
-              {!! Form::close() !!}
             </div>
-          </div>
-        </div>
-      </div>
     </section>
   </div>
+ 
 @endsection

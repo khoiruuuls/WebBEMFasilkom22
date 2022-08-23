@@ -3,13 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use Str;
-use App\Models\Report;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ReportRequest;
-
+use App\Http\Requests\BemitoryRequest;
+use App\Models\Bemitory;
+use Illuminate\Http\Request;
 
 class BemitoryController extends Controller
 {
+
+    
+    
     public function __construct()
     {
         parent::__construct();
@@ -17,7 +20,7 @@ class BemitoryController extends Controller
         $this->data['currentAdminMenu'] = 'aplikasi';
         $this->data['currentAdminSubMenu'] = 'bemitory';
 
-        $this->data['status'] = Report::status();
+        $this->data['status_barang'] = Bemitory::status_barang();
 
         $this->middleware('role:Admin|Humas|Operator');
     }
@@ -29,7 +32,7 @@ class BemitoryController extends Controller
      */
     public function index()
     {
-        $this->data['reports'] = Report::orderBy('created_at', 'DESC')->paginate(10);
+        $this->data['bemitory'] = Bemitory::orderBy('id', 'DESC')->paginate(10);
 
         return view('pages.admin.bemitory.index', $this->data);
     }
@@ -50,16 +53,23 @@ class BemitoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ReportRequest $request)
+    public function store(BemitoryRequest $request)
     {
         $params = $request->validated();
-        $params['slug'] = Str::slug($params['nama']);
+        $params['slug'] = Str::slug($params['kode_barang']);
+        
 
-        if (Report::create($params)) {
+        if (Bemitory::create($params)) {
             return redirect()->route('bemitory.index')->with('success', 'Data berhasil ditambahkan');
         }
 
         return redirect()->route('bemitory.index')->with('error', 'Data gagal ditambahkan');
+    }
+
+
+    public function form()
+    {
+        return view('pages.admin.bemitory.form');
     }
 
     /**
@@ -81,9 +91,9 @@ class BemitoryController extends Controller
      */
     public function edit($id)
     {
-        $report = Report::findOrFail($id);
+        $bemitory = Bemitory::findOrFail($id);
 
-        $this->data['report'] = $report;
+        $this->data['bemitory'] = $bemitory;
 
         return view('pages.admin.bemitory.form', $this->data);
     }
@@ -95,15 +105,15 @@ class BemitoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ReportRequest $request, $id)
+    public function update(BemitoryRequest $request, $id)
     {
         $params = $request->validated();
-        $params['slug'] = Str::slug($params['nama']);
+        $params['slug'] = Str::slug($params['kode_barang']);
 
-        $report = Report::findOrFail($id);
+        $bemitory = Bemitory::findOrFail($id);
 
-        if ($report->update($params)) {
-            $report->touch();
+        if ($bemitory->update($params)) {
+            $bemitory->touch();
             return redirect()->route('bemitory.index')->with('success', 'Data berhasil diperbarui');
         }
 
@@ -118,14 +128,22 @@ class BemitoryController extends Controller
      */
     public function destroy($id)
     {
-        $report = Report::findOrFail($id);
+        $bemitory = Bemitory::findOrFail($id);
 
-        if ($report->delete()) {
+        if ($bemitory->delete()) {
             return redirect()->route('bemitory.index')->with('success', 'Data berhasil dihapus');
         }
 
         return redirect()->route('bemitory.index')->with('error', 'Data gagal dihapus');
     }
 
-
+    public function Tersedia($id) {
+        Bemitory::find($id)->update(['status_barang' => 'tersedia']);
+        return redirect()->route('bemitory.index');
+    }
+    
+    public function Kosong($id) {
+        Bemitory::find($id)->update(['status_barang' => 'kosong']);
+        return redirect()->route('bemitory.index');
+    }
 }

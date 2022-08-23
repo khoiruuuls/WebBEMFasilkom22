@@ -62,6 +62,7 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'role:Admin|Huma
         Route::get('bemitory/{id}/delete', 'BemitoryController@destroy')->name('bemitory.delete');
         Route::get('bemitory/{id}/edit', 'BemitoryController@edit')->name('bemitory.edit');
 
+
         // Event
         Route::resource('event', 'EventController');
         Route::get('event/{id}/delete', 'EventController@destroy')->name('event.delete');
