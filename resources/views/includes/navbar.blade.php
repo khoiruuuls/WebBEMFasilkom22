@@ -93,7 +93,7 @@
 			</li>
 			<li class="dropdown"><a href="#"><span>Keilmuan</span> <i class="bi bi-chevron-right"></i></a>
 				<ul>
-					<li><a href="{{ route('pkm-centre') }}">PKM Centre</a></li>
+					<li><a href="{{ route('pkm-center') }}">PKM Centre</a></li>
 					<li><a href="{{ route('elearning') }}">E-Learning Fasilkom</a></li>
 				</ul>
 			</li>

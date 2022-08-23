@@ -11,7 +11,7 @@
       <div class="section-header">
         <h1>Profil</h1>
         <div class="section-header-breadcrumb">
-          <div class="breadcrumb-item active"><a href="{{ route('pkm-centre') }}">Beranda</a></div>
+          <div class="breadcrumb-item active"><a href="{{ route('pkm-center') }}">Beranda</a></div>
           <div class="breadcrumb-item"><a href="{{ route('profil.index') }}">Profil</a></div>
         </div>
       </div>

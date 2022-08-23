@@ -104,7 +104,7 @@ class PengumumanController extends Controller
     {
         $pengumuman = Pengumuman::findOrfail($id);
 
-        $this->data['program'] = $pengumuman;
+        $this->data['pengumuman'] = $pengumuman;
 
         return view('pages.admin.pkm.pengumuman.form', $this->data);
     }

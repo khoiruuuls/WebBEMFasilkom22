@@ -11,7 +11,7 @@
       <div class="section-header">
         <h1>Pengajuan Usul</h1>
         <div class="section-header-breadcrumb">
-          <div class="breadcrumb-item"><a href="{{ route('pkm-centre') }}">Beranda</a></div>
+          <div class="breadcrumb-item"><a href="{{ route('pkm-center') }}">Beranda</a></div>
           <div class="breadcrumb-item active">Pengajuan</div>
         </div>
       </div>
@@ -110,7 +110,7 @@
                         </td>
                         <td>
                           @if ($proposal->path)
-                            <a href="{{ route('show', $proposal->id) }}" class="embed-link" target="_blank">
+                            <a href="{{ asset('storage/' . $proposal->path) }}" class="embed-link" target="_blank">
                               <img src="{{ asset('pkm/assets/img/icon-pdf.png') }}" alt="{{ $proposal->judul }}" class="img-fluid pdf">
                             </a>
                           @endif

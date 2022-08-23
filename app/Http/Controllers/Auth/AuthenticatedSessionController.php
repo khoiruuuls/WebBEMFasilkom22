@@ -75,7 +75,7 @@ class AuthenticatedSessionController extends Controller
         }
 
         // return redirect()->intended(RouteServiceProvider::HOME);
-        return redirect()->route('pkm-centre');
+        return redirect()->route('pkm-center');
     }
 
     /**
