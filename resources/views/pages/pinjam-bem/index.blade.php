@@ -17,7 +17,7 @@ Pinjam BEM | Kabinet Catralingga
         </div>
         <div class="col-lg-15 justify-content-center mt-5">
             <div class="tombol-pengaduan">
-              <button onclick="pengaduanTerkirim()" type="submit" class="btn btn-success" style="width: 20%">Mulai Pinjam Barang</button>
+                <a class="btn btn-success tombol" href="{{ route('pinjam.login') }}" >Mulai Pinjam Barang</a>
     </div>
 </section>
 </div>

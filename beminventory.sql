@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2022 at 10:32 AM
+-- Generation Time: Aug 26, 2022 at 06:48 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bemtry22`
+-- Database: `beminventory`
 --
 
 -- --------------------------------------------------------
@@ -70,6 +70,30 @@ INSERT INTO `anggota` (`id`, `id_user`, `id_proposal`, `nama`, `npm`, `prodi`, `
 (1, 4, 0, 'fenny', '19081', 'Teknik Informatika', '2019', 'Anggota', '2021-07-09 16:13:00', '2021-07-09 16:13:00'),
 (2, 6, 1, 'fenny', '19081', 'S1 Teknik Informatika', '2019', 'Anggota', '2021-07-14 13:03:43', '2021-07-14 13:03:43'),
 (3, 4, 2, 'bijan', '1910631170099', 'S1 Teknik Informatika', '2019', 'Ketua Kelompok', '2021-07-14 16:44:08', '2021-07-14 16:44:13');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bemitory`
+--
+
+CREATE TABLE `bemitory` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `kode_barang` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `barang` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `status_barang` enum('Tersedia','Kosong') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Tersedia',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `bemitory`
+--
+
+INSERT INTO `bemitory` (`id`, `kode_barang`, `barang`, `jumlah`, `status_barang`, `created_at`, `updated_at`) VALUES
+(17, 'LPTP01', 'Laptop ACER Core i101', 5, 'Kosong', '2022-08-19 13:59:02', '2022-08-19 14:13:47'),
+(19, 'tm09', 'Laptop ACER Core i111', 4, 'Kosong', '2022-08-23 04:37:05', '2022-08-23 04:37:05');
 
 -- --------------------------------------------------------
 
@@ -193,6 +217,9 @@ CREATE TABLE `event` (
 --
 
 INSERT INTO `event` (`id`, `judul`, `slug`, `path`, `konten`, `tanggal`, `created_at`, `updated_at`) VALUES
+(1, 'event evenan', 'event-evenan', 'uploads/event/images/event-evenan_1656071580.png', '<p>isi aja enak jidat lu</p>', '2022-06-24', '2022-06-24 02:22:50', '2022-06-24 11:53:00'),
+(1, 'event evenan', 'event-evenan', 'uploads/event/images/event-evenan_1656071580.png', '<p>isi aja enak jidat lu</p>', '2022-06-24', '2022-06-24 02:22:50', '2022-06-24 11:53:00'),
+(1, 'event evenan', 'event-evenan', 'uploads/event/images/event-evenan_1656071580.png', '<p>isi aja enak jidat lu</p>', '2022-06-24', '2022-06-24 02:22:50', '2022-06-24 11:53:00'),
 (1, 'event evenan', 'event-evenan', 'uploads/event/images/event-evenan_1656071580.png', '<p>isi aja enak jidat lu</p>', '2022-06-24', '2022-06-24 02:22:50', '2022-06-24 11:53:00');
 
 -- --------------------------------------------------------
@@ -573,7 +600,8 @@ INSERT INTO `maba` (`id`, `nama`, `email`, `password`, `prodi`, `nama_kelompok`,
 (258, 'Rina Novela Eramury', 'rinanovelaeramury@gmail.com', '$2y$10$y42tZR5JqImIVaRbtXQQUOOus7oqilFNmf3a0jOk7l5zu78veKjFq', 'S1 Teknik Informatika', NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-09 05:14:58', '2021-09-09 05:14:58'),
 (259, 'Rina Novela Eramury', 'rinanevelaeramury@gmail.com', '$2y$10$.ce5VhtFhRDT8pBVD57BT.jn/p0osTRa99R930BdYAWq.TTT0mKQu', 'S1 Teknik Informatika', NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-09 05:17:54', '2021-09-09 05:17:54'),
 (260, 'Muhammad Sabiq bil khoirot', 'khoirotsabiq26@gmail.com', '$2y$10$2.0nmhl846Dl7b6m0H6sfe2TkuoBODHoWlfdS.btfuRuWE5/o/uC2', 'S1 Teknik Informatika', NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-09 09:51:49', '2021-09-09 09:51:49'),
-(261, 'Bahij Darwisy Farras', 'darwisyf04@gmail.com', '$2y$10$pxZjmELw4W5UqgyJT/6zDuUcZypihDSCYB8ZMsXG69CN9Z7I2dMge', 'S1 Teknik Informatika', NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-09 10:41:56', '2021-09-09 10:41:56');
+(261, 'Bahij Darwisy Farras', 'darwisyf04@gmail.com', '$2y$10$pxZjmELw4W5UqgyJT/6zDuUcZypihDSCYB8ZMsXG69CN9Z7I2dMge', 'S1 Teknik Informatika', NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-09 10:41:56', '2021-09-09 10:41:56'),
+(262, 'dito', 'dito@gmail.com', '$2y$10$pFW5cO5NaUyzeUQh0nchmud1hLAd8TWlvv3aHRY9hd011dYxmhLwC', 'S1 Teknik Informatika', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-23 15:21:26', '2022-08-23 15:21:26');
 
 -- --------------------------------------------------------
 
@@ -656,7 +684,16 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (133, '2021_07_06_213047_create_proker_table', 1),
 (134, '2021_07_09_162857_create_report_table', 1),
 (135, '2021_07_10_171550_create_proposal_table', 1),
-(136, '2021_07_11_023313_create_anggota_table', 1);
+(136, '2021_07_11_023313_create_anggota_table', 1),
+(137, '2022_08_09_155814_create_pengaduan_table', 4),
+(138, '2022_08_19_155325_create_bemitory_table', 5),
+(139, '2022_08_23_205655_create_userpeminjam_table', 6),
+(140, '2022_08_23_210538_create_userpeminjam_table', 7),
+(141, '2022_08_23_210857_create_userpeminjam_table', 8),
+(142, '2022_08_23_211155_create_userpeminjam_table', 9),
+(143, '2022_08_23_211425_create_userpeminjam_table', 10),
+(144, '2022_08_24_171341_create_peminjam_table', 11),
+(145, '2022_08_25_155429_create_peminjaman_table', 12);
 
 -- --------------------------------------------------------
 
@@ -866,13 +903,16 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (1, 'App\\Models\\User', 1),
 (2, 'App\\Models\\User', 2),
 (2, 'App\\Models\\User', 10),
+(2, 'App\\Models\\User', 12),
 (3, 'App\\Models\\User', 3),
 (4, 'App\\Models\\User', 4),
 (4, 'App\\Models\\User', 5),
 (4, 'App\\Models\\User', 6),
 (4, 'App\\Models\\User', 7),
 (4, 'App\\Models\\User', 8),
-(4, 'App\\Models\\User', 11);
+(4, 'App\\Models\\User', 11),
+(4, 'App\\Models\\User', 13),
+(4, 'App\\Models\\User', 14);
 
 -- --------------------------------------------------------
 
@@ -885,6 +925,81 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `peminjam`
+--
+
+CREATE TABLE `peminjam` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `prodi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `peminjam`
+--
+
+INSERT INTO `peminjam` (`id`, `nama`, `email`, `password`, `prodi`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'dito', 'zidan@gmail.com', '$2y$10$nVdDvLMx0Pf3zVBbMe2nHOXaqskuFrB7EUI7DX8DIlQJLprK9XfGS', 'Teknik Informatika', NULL, '2022-08-24 12:48:37', '2022-08-24 12:48:37'),
+(2, 'kisut', 'kisut@gmail.com', '$2y$10$nVdDvLMx0Pf3zVBbMe2nHOXaqskuFrB7EUI7DX8DIlQJLprK9XfGS', 'Teknik Informatika', NULL, '2022-08-25 16:31:53', '2022-08-25 16:31:53');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `peminjaman`
+--
+
+CREATE TABLE `peminjaman` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `barang` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `tanggal_pinjam` date NOT NULL,
+  `durasi` int(11) NOT NULL,
+  `status` enum('proses pengajuan','ditolak','disetujui') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'proses pengajuan',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `peminjaman`
+--
+
+INSERT INTO `peminjaman` (`id`, `username`, `barang`, `jumlah`, `tanggal_pinjam`, `durasi`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'dito', 'Laptop ACER Core i111', 2, '2022-08-25', 3, 'disetujui', '2022-08-25 09:38:51', '2022-08-25 09:41:52'),
+(2, 'dito', 'Laptop ACER Core i101', 2, '2022-09-03', 3, 'disetujui', '2022-08-26 15:33:09', '2022-08-26 15:34:11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pengaduan`
+--
+
+CREATE TABLE `pengaduan` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `pengadu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Anonim',
+  `kategori` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `judul` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `isi_pengaduan` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_pengaduan` enum('Dikaji','Proses','Selesai') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Dikaji',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pengaduan`
+--
+
+INSERT INTO `pengaduan` (`id`, `pengadu`, `kategori`, `judul`, `isi_pengaduan`, `status_pengaduan`, `created_at`, `updated_at`) VALUES
+(6, 'Riyan', 'sistem', 'abc', '123123', 'Dikaji', '2022-08-26 15:40:38', '2022-08-26 15:40:38');
 
 -- --------------------------------------------------------
 
@@ -1448,7 +1563,7 @@ CREATE TABLE `proker` (
 --
 
 INSERT INTO `proker` (`id`, `id_departemen`, `nama_proker`, `slug`, `deskripsi`, `penanggung_jawab`, `anggaran`, `status`, `triwulan`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Welcoming Maba', 'welcoming-maba', 'Kocak geming', 'Alvi Yuniar', '0', 0, '3', '2021-07-07 15:38:13', '2022-06-23 15:56:56'),
+(1, 1, 'Welcoming Maba', 'welcoming-maba', '<p> Welcoming maba merupakan sebuah kegiatan yang diperuntukan untuk menyambut mahasiswa tahun ajaran baru, serta sebagai acara sambutan dari BEM Fasilkom kepada Mahasiswa Baru </p>', 'Alvi Yuniar', '0', 0, '3', '2021-07-07 15:38:13', '2022-06-23 15:56:56'),
 (2, 1, 'Kenali', 'kenali', '<p>Kenali merupakan masa perkenalan antar mahasiswa baru , yang mana program ini diharapkan dapat memperluas koneksi mahasiswa baik pada teman seangkatannya maupun pada Kakak tingkat mereka.</p>', 'Muhamad Sidqih Arhinza Juliantara', '0', 0, '3', '2021-07-07 15:38:40', '2022-06-23 13:31:53'),
 (3, 1, 'Inaugurasi', 'inaugurasi', '<p>Inaugurasi merupakan sebuah program dalam upaya meningkatkan tali persaudaraan antar sesama mahasiswa baru, biasanya dilaksanakan diluar kampus dan memiliki berbagai rangkaian kegiatan yang bersifat non formal.</p>', 'Agnia Virli Rosdianty', '0', 0, '4', '2021-07-07 15:39:07', '2022-06-23 13:31:53'),
 (4, 1, 'BEM FASILKOM Academy', 'bem-fasilkom-academy', '<p>Kegiatan ini bertujuan untuk menciptakan eksekutif muda dari para mahasiswa baru dan memberikan gambaran mengenai tugas dan peranan BEM Fakultas. </p>', 'Muhamad Sidqih Arhinza Juliantara', '0', 1, '3', '2021-07-07 15:39:33', '2022-06-23 13:31:53'),
@@ -1525,6 +1640,13 @@ CREATE TABLE `report` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `report`
+--
+
+INSERT INTO `report` (`id`, `nama`, `slug`, `deskripsi`, `keterangan`, `status`, `created_at`, `updated_at`) VALUES
+(6, 'a21', 'a21', 'ASDA', '<p>ASDASD</p>', 0, '2022-08-19 13:23:57', '2022-08-19 13:23:57');
 
 -- --------------------------------------------------------
 
@@ -1798,61 +1920,6 @@ INSERT INTO `rundown` (`id`, `jam`, `deskripsi`, `created_at`, `updated_at`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `skor_games`
---
-
-CREATE TABLE `skor_games` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `skor` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `skor_games`
---
-
-INSERT INTO `skor_games` (`id`, `id_user`, `nama`, `skor`, `created_at`, `updated_at`) VALUES
-(1, 28, 'Rona Febriana', 7, '2021-07-23 01:20:32', '2022-06-17 08:41:49'),
-(2, 19, 'Muhammad Rizal Vahlevi', 28, '2021-07-23 03:05:21', '2021-09-06 14:24:32'),
-(3, 20, 'nida tsuroya sholahuddin', 9, '2021-07-23 03:06:13', '2022-07-13 04:08:55'),
-(4, 14, 'Lorenzo Tunggul Irvandito', 4, '2021-07-23 04:00:32', '2022-06-03 09:07:54'),
-(5, 5, 'Eno Hakimah Kusuma Dewi', 6, '2021-07-24 12:54:06', '2021-07-30 13:54:55'),
-(6, 25, 'Ririn Nur Fauziyah', 1, '2021-07-25 07:55:58', '2021-07-25 07:55:58'),
-(7, 33, 'Syahrul Chotamy AZ', 5, '2021-07-29 04:49:47', '2021-07-29 05:23:27'),
-(8, 26, 'Rizkiansyah', 1, '2021-07-29 04:50:05', '2021-07-29 04:50:05'),
-(9, 34, 'Syams Sulaeman', 6, '2021-07-29 04:50:11', '2021-07-29 12:11:19'),
-(10, 11, 'Giovanny Maria', 3, '2021-07-29 04:52:19', '2022-02-04 16:13:16'),
-(11, 38, 'Mohammad Bijantium Sinatria', 7, '2021-07-29 04:53:57', '2021-07-30 08:42:22'),
-(12, 23, 'Rafik kusumah', 4, '2021-07-29 04:54:36', '2021-07-30 04:29:40'),
-(13, 18, 'mohammad bukhori pratama', 1, '2021-07-29 04:56:01', '2021-07-29 04:56:01'),
-(14, 10, 'Ginal Fikri Al Hakim', 18, '2021-07-29 04:57:00', '2022-06-17 18:52:14'),
-(15, 13, 'Karianah', 4, '2021-07-29 04:57:05', '2021-07-29 12:04:36'),
-(16, 7, 'Fatma Eka Zulfiakhoir', 3, '2021-07-29 05:10:12', '2021-07-30 13:55:37'),
-(17, 15, 'M.Rendy Baguspriawan', 3, '2021-07-29 05:12:24', '2022-06-23 19:38:12'),
-(18, 3, 'Bonita pebrianti waluyan wijaya', 5, '2021-07-29 05:18:04', '2022-06-13 10:49:16'),
-(19, 32, 'Syafina Haviyola', 1, '2021-07-29 05:22:49', '2021-07-29 05:22:49'),
-(20, 35, 'Syauqi Sulthana Julianto', 2, '2021-07-29 05:23:52', '2022-06-03 09:08:50'),
-(21, 22, 'Putri Dwi Rahayu', 2, '2021-07-29 05:25:08', '2021-07-29 13:07:03'),
-(22, 4, 'Dwi Suci Anggraeni', 8, '2021-07-29 05:27:35', '2021-07-29 12:06:23'),
-(23, 9, 'Fitri Novianti', 6, '2021-07-29 05:28:09', '2021-07-31 14:22:04'),
-(24, 30, 'Stefanus Deo A', 2, '2021-07-29 05:39:41', '2022-05-17 14:31:50'),
-(25, 17, 'Mohamad Alda', 18, '2021-07-29 05:44:00', '2022-06-13 10:40:23'),
-(26, 6, 'Faiz Ferdiansyah', 1, '2021-07-29 06:47:30', '2021-07-29 06:47:30'),
-(27, 2, 'Alia Fadilah', 2, '2021-07-29 09:01:15', '2022-07-01 16:13:25'),
-(28, 29, 'Salim Puad', 25, '2021-07-29 11:49:50', '2022-03-15 06:12:21'),
-(29, 27, 'Rizky Aditya', 1, '2021-07-29 11:50:25', '2021-07-29 11:50:25'),
-(30, 37, 'Zidan Faizi', 6, '2021-07-29 11:52:52', '2022-05-17 04:45:27'),
-(31, 1, 'Adam Darmawan', 1, '2021-07-29 12:06:24', '2021-07-29 12:06:24'),
-(32, 31, 'Sultan Tira Al Farizi', 3, '2021-07-29 12:07:17', '2022-06-13 10:44:05'),
-(33, 21, 'Nur Rizqi Alfiah', 8, '2021-07-29 12:11:13', '2021-07-29 13:30:38'),
-(34, 8, 'Fenny Rahmayani', 2, '2021-07-29 12:47:45', '2021-07-29 13:29:25');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tim_dota`
 --
 
@@ -2074,7 +2141,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `npm`, `prodi`, `tahun_masuk`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin.cs@unsika.ac.id', '2021-07-14 08:23:21', '$2y$10$IzKw5B/PKAOB1NmZOvqzzOOQmVR3g26Txio4tjIUxFx26fn9Fi7Qi', NULL, NULL, NULL, NULL, NULL, 'Y6gpXgZ2BIi2pR11h8ghGrVDcZlEMyA2oqSIwiq2GoTRFJddBtpBi32AYzoN', '2021-07-14 08:23:21', '2022-06-24 11:52:21'),
+(1, 'Admin', 'admin.cs@unsika.ac.id', '2021-07-14 08:23:21', '$2y$10$IzKw5B/PKAOB1NmZOvqzzOOQmVR3g26Txio4tjIUxFx26fn9Fi7Qi', NULL, NULL, NULL, NULL, NULL, 'oVJwTKQgj4Wo45muf9FRfCh2srNXfy6WHnTJBwgtxIT6ZpnqxfAq6GTyRASj', '2021-07-14 08:23:21', '2022-06-24 11:52:21'),
 (2, 'Humas', 'humas.cs@unsika.ac.id', '2021-07-14 08:23:21', '$2y$10$nh3vRCr4ekSiJyOlUiLBZ.ye1hoZ/m1zVD81ur16Yff/92qqZhrHS', NULL, NULL, NULL, NULL, NULL, 'CP2TXcmK82ouTCufoZiSYc19yANT0ioUVJ08hY85eUf8pe0gg9U8MOy9Hx7K', '2021-07-14 08:23:21', '2022-08-06 05:04:40'),
 (3, 'Operator', 'operator.cs@unsika.ac.id', '2021-07-14 08:23:21', '$2y$10$1X5lfQexqFN1YJP5J33qLeiVdCo5WO.ITx0Is/7PhJAjLwKcJr4ja', NULL, NULL, NULL, NULL, NULL, 'HH3cEBTPnjZ4MeNzxmq18OefOHPOruuwSxQFeo55o39UWrMQ5F5jnoGIaFMO', '2021-07-14 08:23:21', '2021-07-14 10:57:42'),
 (4, 'Hilman Fatoni', 'hilmanfatoni8@gmail.com', NULL, '$2y$10$ZOBTfSpSGSiEmI.KJzUvveuUt1IZ49HjpTaD1KpWJfSEY/pqwnzzS', NULL, NULL, '2110631170068', 'S1 Teknik Informatika', '2021', NULL, '2021-11-11 12:26:57', '2021-11-11 12:26:57'),
@@ -2083,73 +2150,10 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `tw
 (7, 'Gebby Dwi Putri Haryanto', 'gebby.dwi19044@student.unsika.ac.id', '2022-08-06 04:49:26', '$2y$10$xLCHmHZII6gqvRR8.MCSDuoOQT.WNh2RKM5SczFwa5Rs67F7orSSS', NULL, NULL, '1910631250044', 'S1 Sistem Informasi', '2019', NULL, '2022-06-14 06:02:11', '2022-06-14 06:02:11'),
 (8, 'AHMAD NURSIDIK DINAR', 'Dinardevil@gmail.com', '2022-08-06 04:49:49', '$2y$10$IzKw5B/PKAOB1NmZOvqzzOOQmVR3g26Txio4tjIUxFx26fn9Fi7Qi', NULL, NULL, '1910631170157', 'S1 Teknik Informatika', '2019', NULL, '2022-06-14 06:04:46', '2022-06-14 06:04:46'),
 (10, 'minbat', 'minbat.cs@unsika.ac.id', '2022-08-06 04:50:22', '$2y$10$CuKt7a62lLlaRb3rAdIF3OwUTC0IPztUmraZJMwGvu/gObZyggOtC', NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-14 06:52:04', '2022-08-06 05:00:12'),
-(11, 'Dimas', '2010631250040@student.unsika.ac.id', '2022-08-06 04:50:04', '$2y$10$Hc5JD08URsDhZvUe/1BNTuoldSlNDFkhXgIe.Il15bNLxiJs2dC1e', NULL, NULL, '2010631250040', 'S1 Sistem Informasi', '2020', NULL, '2022-07-05 07:10:53', '2022-07-05 07:10:53');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_game`
---
-
-CREATE TABLE `user_game` (
-  `id` int(11) NOT NULL,
-  `timestamp` varchar(255) NOT NULL,
-  `nama_lengkap` varchar(255) NOT NULL,
-  `nama_panggilan` varchar(255) NOT NULL,
-  `jenis_kelamin` varchar(255) NOT NULL,
-  `tinggi_badan` varchar(255) NOT NULL,
-  `berat_badan` varchar(255) NOT NULL,
-  `hobi` varchar(255) NOT NULL,
-  `asal` varchar(255) NOT NULL,
-  `angkatan` varchar(4) NOT NULL,
-  `bidang` varchar(255) NOT NULL,
-  `makanan_favorite` varchar(255) NOT NULL,
-  `deskripsi` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `user_game`
---
-
-INSERT INTO `user_game` (`id`, `timestamp`, `nama_lengkap`, `nama_panggilan`, `jenis_kelamin`, `tinggi_badan`, `berat_badan`, `hobi`, `asal`, `angkatan`, `bidang`, `makanan_favorite`, `deskripsi`) VALUES
-(1, '09/07/2021 22:10:36', 'Adam Darmawan', 'Adam', 'Laki-laki', '166', '54', 'Olahraga', 'Karawang', '2019', 'Sosial dan Politik', 'Tahu', 'Pendiam'),
-(2, '10/07/2021 11:25:03', 'Alia Fadilah', 'Alia', 'Perempuan', '150', '36', 'Nonton', 'Karawang', '2018', 'PSDM', 'Bakso', 'Saya adalah orang yang disiplin, terorganisir, dan senang membantu orang lain.'),
-(3, '07/07/2021 19:31:57', 'Bonita pebrianti waluyan wijaya ', 'Bonbon', 'Perempuan', '153', '47', 'Memasak', 'Karawang ', '2019', 'Wakil bendahara', 'Ayam bakar', 'Saya adalah seorang yang selalu mengutamakan untuk berpilaku jujur dan berpikir positif di segala hal,  ketika mengerjakan sesuatu harus fokus pada satu hal jika di bagi fokus maka yg di hasilkan tidak maksimal, senang mendengarkan kisah hidup dan menjadi pendengar yang baik ketika bersama orang lain. '),
-(4, '08/07/2021 13:21:00', 'Dwi Suci Anggraeni', 'Dwi', 'Perempuan', '165', '77', 'Mendengarkan Lagu ', 'Karawang', '2018', 'Bidang PSDM', 'Mie Ayam', 'Saya mahasiswa teknik informatika fakultas ilmu komputer unsika. Saya masuk tahun 2018 dan insyaAllah akan lulus tahun 2022. Aamiin doain yaa'),
-(5, '08/07/2021 12:44:10', 'Eno Hakimah Kusuma Dewi', 'mbaen', 'Perempuan', '156', '49', 'bernyanyi', 'Karawang', '2018', 'BPH', 'Bakso', 'Saya adalah mahasiswi di Universitas Singaperbangsa Karawang. Suka makan makanan dan uang, semua suka kecuali buah melon. '),
-(6, '08/07/2021 15:27:14', 'Faiz Ferdiansyah', 'Faiz', 'Laki-laki', '169', '70', 'Valorant terosss', 'Karawang', '2018', 'sospol', 'AYAM', 'saya mah orang nya mudah bergaul, bisa masik sana sini, pokoknya mah gampang lah kalo masalah diajak bercanda, gtu aja mungkin'),
-(7, '07/07/2021 19:23:19', 'Fatma Eka Zulfiakhoir', 'Eka', 'Perempuan', '161', '59', 'Menonton Film', 'Karawang', '2018', 'Minat Bakat', 'Bakso', 'Saya adalah anak pertama dari 2 bersaudara. Saya adalah tipikal orang pekerja keras dan mau belajar.'),
-(8, '08/07/2021 13:01:09', 'Fenny Rahmayani', 'Fen', 'Perempuan', '156', '56', 'Nonton Anime', 'Karawang', '2019', 'Minat Bakat', 'Indomie goreng spesial', 'Aku Fenny, umur 20 tahun, masih single, suka banget sama kucing, punya cita cita jadi Bupati Karawang, wibu level dasar, bisa nulis Jepang tapi bukan kanji. Orangnya sering panik dan overthinking juga hobbi ngejar deadline. Jangan lupa follow Instagramnya @fennyrhmyn dan @compfair . Sekian terima kasih'),
-(9, '08/07/2021 12:00:06', 'Fitri Novianti', 'Fitet', 'Perempuan', '160', '45', 'Berjualan', 'Karawang', '2019', 'Sosial politik', 'Cumi', 'Pemalas wkwk'),
-(10, '08/07/2021 15:26:53', 'Ginal Fikri Al Hakim', 'Ginal', 'Laki-laki', '198', '70', 'Game', 'Tangerang', '2018', 'Sospol', 'Cacing', 'Aku ga suka kamu'),
-(11, '07/07/2021 19:30:52', 'Giovanny Maria', 'Gio', 'Perempuan', '165', '42', 'Menari', 'Karawang', '2019', 'Minat bakat', 'Bakso', 'Saya dikenal galak di bidang saya, saya mudah bergaul tapi kalo ga diajak ngobrol duluan saya ga akan ngajak ngobrol duluan kecuali anda teman baik saya :)'),
-(12, '07/07/2021 14:51:08', 'Irya Muhammad Riyadhi', 'Irya', 'Laki-laki', '176', '50', 'Baca Webtoon', 'Bekasi', '2019', 'Kominfo', 'indomie goreng', 'jgn serius\" ntar baper :('),
-(13, '08/07/2021 13:36:11', 'Karianah', 'Karin, kayin, kayen, ateu, ayin, malah dulu kecil pas ngaji dipanggilnya kania ga nyambung bgt kan😒 trs kadang juga dipanggil sayang *eh', 'Perempuan', '45', '40', 'Tidur', 'Kota yang ciri khasnya kopi liong (cluenya: bogor)', '2019', 'PSDM', 'Makanan yang dikasih aku suka', 'I’m karin (sebenernya nama asli di akte kelahiran tuh karianah septiah tapi grgr pindah ke bogor trs di daftarin masuk sekolah sama orang yang ga tau nama panjang aku akhirnya di daftarinnya karianah doang yaudah akhirnya berlanjut ampe sekarang nama aku jadi karianah doang😩) manusia yang 64 hari lagi ulang tahun yang ke 20 yippiee🤗 yang cita citanya bisa jadi tinggi sm bbnya naik, hidupnya nomaden alias pindah” mulu lahir di bogor kecilnya di palembang remaja balik lagi ke bogor trs sekarang pindah ke karawang , suka bgt sama seblak tulang yang cikurnya banyak, hobi ikut lomba-lomba tapi gapernah menang huhu sad:( aku adalah mahasiswi dokter gigi yang nyasar di teknik informatika alias pengen jd dokter gigi tp ga kesampean🥲🥲🥲'),
-(14, '08/07/2021 13:57:32', 'Lorenzo Tunggul Irvandito', 'Jo', 'Laki-laki', '178', '90', 'Gaming', 'Karawang', '2018', 'Kominfo', 'Indomie', 'Aku adalah lelaki ceria ceria'),
-(15, '09/07/2021 22:09:18', 'M.Rendy Baguspriawan', 'ondoy', 'Laki-laki', '170', '52', 'main game', 'bekasi', '2019', 'KOMINFO', 'pecel lele', 'saya merupakan seseorang yang sangat tertarik cyber security dan manajer investasi, saya juga senang belajar berbagai hal baru yang saya belum tahu.'),
-(16, '08/07/2021 23:07:58', 'Mau\'idzoh Hasanah', 'Hasanah', 'Perempuan', '157', '50', 'Menonton film science fiction', 'Cirebon', '2019', 'Sosial Politik', 'Ikan bakar', 'Mahasiswi teknik informatika umur 19 tahun yang asalnya dari Cirebon, ikut FKDK Unsika, berkacamata, orangnya kaku dan sulit mengekspresikan diri, punya 4 kakak dan 2 adik kembar, moto hidup niatkan segala sesuatu lillahi ta\'ala'),
-(17, '07/07/2021 19:18:27', 'Mohamad Alda ', 'Al', 'Laki-laki', '180', '60', 'Berimajinasi', 'Karawang', '2019', 'Sosial dan politik', 'Nasi goreng cun cun', 'Saya suka nongkrong, di samping itu saya sangat gemar berimajinasi tentang masa depan dunia, tentang teori, tentang beberapa hal serius lainnya.'),
-(18, '07/07/2021 21:35:21', 'mohammad bukhori pratama', 'bukhori / ori', 'Laki-laki', '165', '60', 'bersepeda', 'bogor', '2019', 'kominfo', 'nasi padang', 'bisa dibilang saya adalah orang yang overthinking'),
-(19, '08/07/2021 12:39:16', 'Muhammad Rizal Vahlevi', 'jale', 'Laki-laki', '183', '65', 'baca buku, ngedesain', 'purwakarta', '2018', 'WAKIL KETUA', 'indomie', 'ya biasa aja lah'),
-(20, '08/07/2021 12:35:17', 'nida tsuroya sholahuddin ', 'nidats', 'Perempuan', '169', '60', 'nonton film', 'purwakarta', '2018', 'psdm', 'kwetiau seafood', 'i live in a never-ending daydream, anaknya suka banget makan, suka menyendiri tapi merasa kesepian dalam waktu yang bersamaan, insensitive, ga sabaran, seneng banget ngobrol, kindly like to ignore trends, and find my unique voices.'),
-(21, '08/07/2021 15:51:17', 'Nur Rizqi Alfiah', 'kiki', 'Perempuan', '160', '52', 'menyanyi', 'Jakarta', '2019', 'wakil sekretaris umum', 'mie ayam', 'aku mahasiswa kupu-kupu yang sedang mencoba berproses di BEM. tahun ini adalah tahun pertama aku masuk BEM. banyak banget pengalaman baru yang bisa dijadikan pelajaran buatku. banyak juga kesalahan-kesalahan yang ku perbuat akibat dari kurang cekatannya aku. ku harap kesalahan tersebut gak akan terulang lagi dan aku makin baik dari waktu ke waktu.'),
-(22, '09/07/2021 11:08:43', 'Putri Dwi Rahayu', 'Mba put', 'Perempuan', '152', '51', 'Traveling', 'Brebes', '2018', 'PSDM', 'Bakso', 'Saya adalah orang yang mudah bersosialisasi serta bisa menjadi pendengar yang baik'),
-(23, '07/07/2021 19:22:43', 'Rafik kusumah', 'Avillio / subnero ', 'Laki-laki', '167', '64', 'Ngegame ', 'Bekasi', '2018', 'Minat bakat', 'Indomie', 'Saya orang nya suka mempunyai rasa percaya diri yang tinggi kadang2.dan saya juga suka ngegame yang menghasilkan uang'),
-(24, '08/07/2021 14:27:50', 'Reynold Julian Tamba', 'Rey/Reynold', 'Laki-laki', '165', '52', 'Main futsal', 'Jakarta', '2019', 'Kominfo', 'Nasi goreng', 'Aku anak kedua dari empat bersaudara'),
-(25, '08/07/2021 12:29:01', 'Ririn Nur Fauziyah ', 'Rin', 'Perempuan', '155', '49', 'Main gitar ', 'Karawang ', '2019', 'Bidang Minat dan Bakat ', 'Mie goreng ', 'Saya seorang anak bungsu dari 3 bersaudara. Menurut orang-orang terdekat saya, saya memiliki kepribadian baik, humble, pendengar curhat yang baik, terkadang ada yang bilang saya orang yg pendiam. \nSaya memiliki sifat sedikit pemalu jika bertemu dengan orang tetapi saya mudah berbaur dengan orang yang baru di kenal. '),
-(26, '08/07/2021 13:14:27', 'Rizkiansyah', 'Koko', 'Laki-laki', '168', '51', 'Cari hal baru', 'Bogor', '2019', 'Kominfo', 'Mie Instan', 'Tough guy'),
-(27, '08/07/2021 13:48:06', 'Rizky Aditya', 'Aditmirano', 'Laki-laki', '162', '66', 'Ga ngapa ngapain', 'Karawang', '2018', 'Kominfo', 'Predekel', 'Totalitas, tulalit jelek idup'),
-(28, '07/07/2021 14:45:23', 'Rona Febriana', 'Nana', 'Laki-laki', '183', '62', 'voli', 'karawang', '2018', 'kominfo', 'pecel', 'orangnya serius kalo udah sayang'),
-(29, '09/07/2021 21:52:11', 'Salim Puad', 'Mpuuu', 'Laki-laki', '171', '58 kg', 'Main game', 'Subang', '2019', 'Minat & Bakat', 'Karedok', 'Aku orang sederhana yang ingin membanggakan orang tua '),
-(30, '08/07/2021 12:55:50', 'Stefanus Deo A', 'Deo', 'Laki-laki', '172', '90', 'Olahraga ', 'Karawang', '2019', 'Minat bakat', 'Indomie', 'Baik,  dan gampang bergaul'),
-(31, '08/07/2021 12:11:05', 'Sultan Tira Al Farizi', 'Sultan', 'Laki-laki', '168', '0,55', 'Futsal', 'Kabupaten Subang', '2019', 'Bidang Sosial politik', 'Udang', 'Aku senang dan atusias jikalau ada hal baru yang aku tau '),
-(32, '07/07/2021 19:24:11', 'Syafina Haviyola', 'Fina / ena', 'Perempuan', '165', '55', 'Bermain volly', 'Karawang', '2019', 'Bid. PSDM', 'Ayam ', 'Aduh apa ya.... Oke gini deh nama saya syafina haviyola klau orang baru kenal saya biasanya panggil saya Syafina , klau udah kenal Deket manggilnya Fina , kalau keluarga manggilnya ena, umur saya 20 tahun saya lahir di bulan Maret hari Rabu waktu subuh jam 05.30 saya orang Karawang asli tapi ga bisa bahasa Sunda, klau sedikit2sih bisa tapi aga kasar gtu sundanya:) saya 2 bersaudara adik saya perempuan baru kelas 2 SMA, hobby saya bermain bola volly walaupun blm bisa smash yg bner tp suka ajh gtu maininya karna waktu SD sampe SMP pernh ikut eskul volly , waktu SMK gatau knp pengen terjun ke dunia organisasi eh kecanduan sampe sekarang masih ikut organisasi soalnya klau ga ikut tuh kaya ada yg kurang hampa ajh gtu walaupun ikut organisasi tuh nambah2 masalah , bikin pusing , tapi seru ajh banyak temen , banyak pengalaman baru pokonya seru deh , udh deh sgtu ajh takut kepanjangan sekian dan terimakasih 🙏'),
-(33, '07/07/2021 19:30:10', 'Syahrul Chotamy AZ', 'Amy', 'Laki-laki', '167', '52', 'Podcasting', 'Bekasi', '2019', 'KOMINFO', 'French fries', 'Seorang yang mempunyai hobby lain selain podcasting yaitu memasak, memiliki usaha kecil dibidang food and beverage, dan juga fragrance. Gemar membaca novel yang berdasarkan kisah hidup yang nyata, menulis beberapa artikel dan script. '),
-(34, '07/07/2021 19:39:12', 'Syams Sulaeman', 'Sem', 'Laki-laki', '178', '67', 'joging', 'Karawang', '2019', 'PSDM', 'Mie Indomie Goreng', 'Hai.. Perkenalkan, namaku Syams Sulaeman, teman di perkuliahan ini biasa memanggil aku dengan nama \"sem\". Saya adalah anak ke-2 dari orang tua saya.. saya mempunyai satu kaka laki-laki yg sekarang sudah menikah dan mempunyai keluarga kecilnya sendiri. saya dirumah hanya ber-2 karena ayah saya sudah lama alm. hobi saya ada beberapa, tpi yg sering saya lakukan hampir tiap hari ialah jogging. '),
-(35, '08/07/2021 16:19:20', 'Syauqi Sulthana Julianto', 'Soki', 'Laki-laki', '170', '50', 'Editing Video', 'Bekasi', '2018', 'Kominfo', 'Cilok Goang', 'Baik, Murah Hati, Rajin Menabung'),
-(36, '09/07/2021 22:15:46', 'Virgaria Zuliana', 'Virga', 'Perempuan', '164', '70', 'Baca Novel Fiksi', 'Subang', '2018', 'BPH', 'Sate Ayam', 'Overthinking dan tertutup.'),
-(37, '08/07/2021 12:40:49', 'Zidan Faizi', 'Kato', 'Laki-laki', '171', '57', 'Fafifu wasweswos', 'Jakarta', '2019', 'Sospol', 'Mie sukses', 'Ordinary boy who try to reach a lot of dream'),
-(38, '17/07/2021 12:08:05', 'Mohammad Bijantium Sinatria', 'Bijan', 'Laki-laki', '168', '65', 'Membaca', 'Bogor', '2019', 'Kominfo', 'Rendang', 'Berusaha untuk selalu belajar, Dapat memimpin, Mudah bergaul');
+(11, 'Dimas', '2010631250040@student.unsika.ac.id', '2022-08-06 04:50:04', '$2y$10$Hc5JD08URsDhZvUe/1BNTuoldSlNDFkhXgIe.Il15bNLxiJs2dC1e', NULL, NULL, '2010631250040', 'S1 Sistem Informasi', '2020', NULL, '2022-07-05 07:10:53', '2022-07-05 07:10:53'),
+(12, 'SOSPOL', 'sospol.cs@unsika.ac.id', NULL, '$2y$10$AAn9yxS/2Yt.V1v4KRAyk.vzWFvpETmNWO8vkRyJW1vFo3ml/CiJ6', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-09 15:11:33', '2022-08-09 15:11:33'),
+(13, 'dito', 'dito@gmail.com', '2022-08-16 14:32:25', '$2y$10$nVdDvLMx0Pf3zVBbMe2nHOXaqskuFrB7EUI7DX8DIlQJLprK9XfGS', NULL, NULL, '1212', 'S1 Teknik Informatika', '2020', NULL, '2022-08-23 13:21:27', '2022-08-23 13:21:27'),
+(14, 'dito', 'dito22@gmail.com', NULL, '$2y$10$jbFqH2zCbwa4VzKrLT0v4./Upzwsj29x2rJ0s/BHe/l9atsnLWlTC', NULL, NULL, '20106311', 'S1 Teknik Informatika', '2015', NULL, '2022-08-23 13:34:38', '2022-08-23 13:34:38');
 
 --
 -- Indexes for dumped tables
@@ -2168,6 +2172,12 @@ ALTER TABLE `anggota`
   ADD PRIMARY KEY (`id`),
   ADD KEY `anggota_id_user_foreign` (`id_user`),
   ADD KEY `anggota_id_proposal_foreign` (`id_proposal`);
+
+--
+-- Indexes for table `bemitory`
+--
+ALTER TABLE `bemitory`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `berita`
@@ -2239,6 +2249,25 @@ ALTER TABLE `model_has_roles`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `peminjam`
+--
+ALTER TABLE `peminjam`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `peminjam_email_unique` (`email`);
+
+--
+-- Indexes for table `peminjaman`
+--
+ALTER TABLE `peminjaman`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pengaduan`
+--
+ALTER TABLE `pengaduan`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `pengumuman`
@@ -2410,12 +2439,6 @@ ALTER TABLE `rundown`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `skor_games`
---
-ALTER TABLE `skor_games`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `tim_dota`
 --
 ALTER TABLE `tim_dota`
@@ -2485,13 +2508,6 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- Indexes for table `user_game`
---
-ALTER TABLE `user_game`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id` (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -2499,13 +2515,19 @@ ALTER TABLE `user_game`
 -- AUTO_INCREMENT for table `acara`
 --
 ALTER TABLE `acara`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `anggota`
 --
 ALTER TABLE `anggota`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `bemitory`
+--
+ALTER TABLE `bemitory`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `berita`
@@ -2547,13 +2569,31 @@ ALTER TABLE `karya`
 -- AUTO_INCREMENT for table `maba`
 --
 ALTER TABLE `maba`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=262;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=263;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+
+--
+-- AUTO_INCREMENT for table `peminjam`
+--
+ALTER TABLE `peminjam`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `peminjaman`
+--
+ALTER TABLE `peminjaman`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `pengaduan`
+--
+ALTER TABLE `pengaduan`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pengumuman`
@@ -2685,7 +2725,7 @@ ALTER TABLE `proposal`
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -2698,12 +2738,6 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `rundown`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
---
--- AUTO_INCREMENT for table `skor_games`
---
-ALTER TABLE `skor_games`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `tim_dota`
@@ -2763,13 +2797,7 @@ ALTER TABLE `turnamen`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT for table `user_game`
---
-ALTER TABLE `user_game`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3133;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables

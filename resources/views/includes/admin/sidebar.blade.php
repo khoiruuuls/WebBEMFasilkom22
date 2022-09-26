@@ -24,11 +24,13 @@
         </ul>
       </li>
       <li class="nav-item {{ ($currentAdminMenu == 'proker') ? 'active' : ''}}">
-        <a class="nav-link" href="{{ route('proker.index') }}"><i class="bi-card-checklist"></i><span>Program Kerja</span></a>
+        <a class="nav-link" href="{{ route('proker.index') }}"><i class="bi-card-checklist">
+          </i><span>Program Kerja</span></a>
       </li>
       <li class="nav-item dropdown {{ ($currentAdminMenu == 'akun') ? 'active' : ''}}">
         <a class="nav-link has-dropdown"><i class="far fa-user"></i> <span>Akun</span></a>
         <ul class="dropdown-menu">
+          <li class="{{ ($currentAdminSubMenu == 'user') ? 'active' : ''}}"><a class="nav-link" href="{{ route('peminjam.index') }}">Peminjam</a></li>
           <li class="{{ ($currentAdminSubMenu == 'user') ? 'active' : ''}}"><a class="nav-link" href="{{ route('user.index') }}">User</a></li>
           <li class="{{ ($currentAdminSubMenu == 'role') ? 'active' : ''}}"><a class="nav-link" href="{{ route('role.index') }}">Peran</a></li>
         </ul>

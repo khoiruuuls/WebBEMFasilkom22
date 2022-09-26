@@ -88,3 +88,28 @@ Route::prefix('pkkmb2021')->group(function () {
     ->middleware('auth:maba')
     ->name('pkkmb.logout');
 });
+
+/**
+ * Pinjam-Bem
+ */
+
+Route::prefix('pinjam-bem')->group(function () {
+  Route::get('/daftar', [RegisteredUserController::class, 'createPeminjam'])
+    ->middleware('guest')
+    ->name('pinjam.daftar');
+
+  Route::post('/daftar', [RegisteredUserController::class, 'storePeminjam'])
+    ->middleware('guest')
+    ->name('pinjam.store');
+
+  Route::get('/login', [AuthenticatedSessionController::class, 'createPeminjam'])
+    ->middleware('guest')
+    ->name('pinjam.login');
+
+  Route::post('/login', [AuthenticatedSessionController::class, 'storePeminjam'])
+    ->middleware('guest');
+
+  Route::post('/logout', [AuthenticatedSessionController::class, 'destroyPeminjam'])
+    ->middleware('auth:peminjam')
+    ->name('pinjam.logout');
+});

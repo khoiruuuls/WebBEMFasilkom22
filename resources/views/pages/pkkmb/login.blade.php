@@ -17,7 +17,7 @@ PKKMB Fasilkom 2021
           </div>
           <div class="col-md input">
             {!! Form::open(['route' => 'pkkmb.login']) !!}
-              <h3 class="text-center mt-4 mt-5 mt-sm-5">{{ $greeting }}!</h3>
+             
               <div class="mt-5">
                 {!! Form::label('email', 'Email', ['class' => 'form-label']) !!}
                 {!! Form::email('email', null, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : null), 'placeholder' => 'Masukkan email kamu']) !!}

@@ -13,7 +13,7 @@
   <div class="main-content">
     <section class="section">
       <div class="section-header">
-        <h1>Struktur BEM Fasilkom 2021</h1>
+        <h1>Struktur BEM Fasilkom 2022</h1>
         <div class="section-header-breadcrumb">
           <div class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></div>
           <div class="breadcrumb-item active"><a href="{{ route('admin.struktur') }}">Struktur</a></div>

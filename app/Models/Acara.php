@@ -20,18 +20,18 @@ class Acara extends Model
     public static function bulan()
     {
         return [
-            'Januari 2022' => 'Januari 2022',
-            'Februari 2022' => 'Februari 2022',
-            'Maret 2022' => 'Maret 2022',
-            'April 2022' => 'April 2022',
-            'Mei 2022' => 'Mei 2022',
-            'Juni 2022' => 'Juni 2022',
-            'Juli 2021' => 'Juli 2023',
-            'Agustus 2023' => 'Agustus 2023',
-            'September 2023' => 'September 2023',
-            'Oktober 2023' => 'Oktober 2023',
-            'November 2023' => 'November 2023',
-            'Desember 2023' => 'Desember 2023',
+            'Januari' => 'Januari',
+            'Februari' => 'Februari',
+            'Maret' => 'Maret',
+            'April' => 'April',
+            'Mei' => 'Mei',
+            'Juni' => 'Juni',
+            'Juli' => 'Juli',
+            'Agustus' => 'Agustus',
+            'September' => 'September',
+            'Oktober' => 'Oktober',
+            'November' => 'November',
+            'Desember' => 'Desember',
         ];
     }
 }

@@ -8,9 +8,9 @@ Route::get('aplikasi', 'AplikasiController@index')->name('aplikasi');
 Route::prefix('aplikasi')->namespace('Aplikasi')->group(function () {
     // == APLIKASI PUBLIK
     Route::get('elearning', 'ElearningController@index')->name('elearning');
-    Route::get('pinjam-bem', 'PinjamController@index')->name('pinjam');
     Route::get('game', 'GameController@index')->name('game');
     Route::get('mading', 'MadingController@index')->name('mading');
+    Route::get('bemitory', 'BemitoryController@index')->name('bemitory');
     Route::get('foto-kegiatan', 'FotoKegiatanController@index')->name('foto-kegiatan');
     Route::get('merchandise', 'MerchController@index')->name('merchandise');
     Route::get('info-kajian', 'InfoKajianController@index')->name('info-kajian');
@@ -33,6 +33,10 @@ Route::prefix('aplikasi')->namespace('Aplikasi')->group(function () {
     Route::prefix('pengaduan')->group(function () {
         Route::get('/', 'PengaduanController@index')->name('pengaduan');
         Route::post('/kirimpengaduan', 'PengaduanController@store')->name('kirimpengaduan');
+    });
+
+    Route::prefix('pinjam-bem')->namespace('PINJAM')->middleware(['auth:peminjam'])->group(function () {
+        Route::get('/', 'PinjamBemController@index')->name('pinjam');
     });
 
     

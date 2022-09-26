@@ -136,6 +136,7 @@ class ProkerController extends Controller
         $params['slug'] = Str::slug($params['nama_proker']);
 
         if ($proker->update($params)) {
+            $proker->touch();
             return redirect()->route('proker.index')->with('success', 'Program Kerja berhasil diperbarui');
         }
 

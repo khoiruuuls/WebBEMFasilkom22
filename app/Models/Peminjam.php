@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
+
+class Peminjam extends Authenticatable
+{
+    use HasFactory, Notifiable, HasRoles;
+
+    protected $table = 'peminjam';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'nama',
+        'email',
+        'password',
+        'prodi',
+    ];
+
+    protected $guard = 'peminjam';
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    public static function prodi()
+    {
+        return [
+            'S1 Teknik Informatika' => 'S1 Teknik Informatika',
+            'S1 Sistem Informasi' => 'S1 Sistem Informasi',
+        ];
+    }
+}

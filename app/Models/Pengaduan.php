@@ -14,6 +14,5 @@ class Pengaduan extends Model
         'kategori',
         'judul',
         'isi_pengaduan',
-        'status_pengaduan'
     ];
 }
