@@ -46,6 +46,8 @@ class PeminjamController extends Controller
         return DB::transaction(function () use ($params, $request) {
             $user = Peminjam::create([
                 'nama' => $request->nama,
+                'npm' => $request->npm,
+                'no_hp' => $request->no_hp,
                 'email' => $request->email,
                 'prodi' => $request->prodi,
                 'password' => Hash::make($request->password),

@@ -47,7 +47,7 @@
                   <div class="form-group row mb-4">
                     {!! Form::label('deskripsi', 'Deskripsi', ['class' => 'col-form-label text-md-right col-12 col-md-3 col-lg-3']) !!}
                     <div class="col-sm-12 col-md-7">
-                      {!! Form::textarea('deskripsi', null, ['id'=>'summernote','class' => '']) !!}
+                      {!! Form::textarea('deskripsi', null, ['class'=>'summernote']) !!}
                     </div>
                   </div>
 
@@ -81,7 +81,7 @@
       </div>
     </section>
   </div>
-  <script>
+  {{--  <script>
     $(document).ready(function() {
         $('#summernote').summernote({
             placeholder: "Ketikan sesuatu disini . . .",
@@ -95,5 +95,5 @@
             ]
         });
     });
-</script>
+</script>  --}}
 @endsection

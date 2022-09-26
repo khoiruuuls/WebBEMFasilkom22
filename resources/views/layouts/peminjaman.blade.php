@@ -18,7 +18,7 @@
                 </span>
                
                 <div class="text logo-text">
-                    <span class="name">{{ Auth::user()->nama }}</span>
+                    <span class="name">{!! Str::limit(Auth::user()->nama, 15) !!}</span>
                     <span class="profession">User</span>
                 </div>
             </div>
@@ -119,8 +119,20 @@ modeSwitch.addEventListener("click" , () =>{
 });
 
 
-    </script>
 
+
+    </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 </body>
+<script type="text/javascript">
+function show_hide()
+    {
+        if($item['status'] == "disetujui"){
+            document.getElementById("submitbtn").style.visibility = 'visible';
+        }
+        else {
+        document.getElementById("submitbtn").style.visibility = 'hidden';
+        } 
+    }
+</script>
 </html>

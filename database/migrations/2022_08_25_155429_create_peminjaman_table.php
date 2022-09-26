@@ -20,7 +20,7 @@ class CreatePeminjamanTable extends Migration
             $table->integer('jumlah');
             $table->date('tanggal_pinjam');
             $table->integer('durasi');
-            $table->enum('status',['proses pengajuan','ditolak','disetujui'])->default('proses pengajuan');
+            $table->enum('status',['proses pengajuan','ditolak','disetujui','dibatalkan'])->default('proses pengajuan');
             $table->timestamps();
         });
     }

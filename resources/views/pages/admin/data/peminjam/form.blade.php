@@ -46,6 +46,24 @@
                   @enderror
                 </div>
                 <div class="form-group">
+                  {!! Form::label('no_hp', 'Nomor HP') !!}
+                  {!! Form::text('no_hp', old('no_hp', !empty($user) ? $user->npm : null), ['class' => 'form-control' . ($errors->has('no_hp') ? ' is-invalid' : '') . (!$errors->has('no_hp') && old('no_hp') ? ' is-valid' : '')]) !!}
+                  @error('no_hp')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                </div>
+                <div class="form-group">
+                  {!! Form::label('npm', 'NPM') !!}
+                  {!! Form::text('npm', old('npm', !empty($user) ? $user->npm : null), ['class' => 'form-control' . ($errors->has('npm') ? ' is-invalid' : '') . (!$errors->has('npm') && old('npm') ? ' is-valid' : '')]) !!}
+                  @error('npm')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                </div>
+                <div class="form-group">
                   {!! Form::label('email', 'Email') !!}
                   {!! Form::email('email', old('name', !empty($user) ? $user->email : null), ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : '') . (!$errors->has('email') && old('email') ? ' is-valid' : '')]) !!}
                   @error('email')

@@ -109,11 +109,26 @@
                                     <td>
                                     <form action="bemitory/disetujui/{{$item['id']}}" method="POST">
                                         @csrf
-                                        <button type="submit" class="btn btn-success tombol-status mt-1" style="border-radius:25px;">Disetujui</button>
-                                    </form>
+                                        <button type="submit" class="btn btn-success tombol-status mt-1" style="border-radius:25px; <?php
+                                        if($item['status'] == "dibatalkan"){
+                                          echo "visibility:hidden;";
+                                        }
+                                        else {
+                                            echo "";
+                                        }
+                                    ?>
+                                    ">Disetujui</button></form>  
+                                    
                                     <form action="bemitory/ditolak/{{$item['id']}}" method="POST">
                                       @csrf
-                                      <button type="submit" class="btn btn-danger tombol-status mt-1" style="border-radius:25px;">Ditolak</button>
+                                      <button type="submit" class="btn btn-danger tombol-status mt-1" style="border-radius:25px; <?php
+                                      if($item['status'] == "dibatalkan"){
+                                        echo "visibility:hidden;";
+                                      }
+                                      else {
+                                          echo "";
+                                      }
+                                  ?>">Ditolak</button>
                                   </form>  
                                     </td>
                                 </tr>

@@ -20,6 +20,8 @@ class Peminjam extends Authenticatable
      */
     protected $fillable = [
         'nama',
+        'npm',
+        'no_hp',
         'email',
         'password',
         'prodi',

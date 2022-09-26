@@ -17,6 +17,8 @@ class CreatePeminjamTable extends Migration
         Schema::create('peminjam', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('npm');
+            $table->string('no_hp');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('prodi');

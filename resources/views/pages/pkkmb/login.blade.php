@@ -10,6 +10,13 @@ PKKMB Fasilkom 2021
 
   <section id="login" class="login">
     <div class="container mt-5">
+      @if (session('success'))
+      <div class="alert alert-success alert-dismissible fade show border-0 text-md-center text-start text-sm-start bg-transparent" role="alert">
+        <strong>Akun berhasil dibuat!</strong> <br> 
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
       <div class="form-login">
         <div class="row">
           <div class="col-md">

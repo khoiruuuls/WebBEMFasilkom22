@@ -25,28 +25,71 @@
                         <td>{{ $item['barang'] }}</td>
                         <td>{{ $item['jumlah'] }}</td>
                         <td>{{ $item['durasi'] }}</td>
-                        <td>{{ $item['tanggal_pinjam'] }}</td>
+                        <td>{{ \Carbon\Carbon::parse($item->tanggal_pinjam)->translatedFormat('d F Y') }}</td>
                         <td>{{ $item['status'] }}</td>
                         <td>
-                            <a href="riwayat/downloadpdf/{{ $item['id'] }}" type="button" class="btn btn-success
+                            <a href="riwayat/downloadpdf/{{ $item['id'] }}" type="button" class="btn btn-success" style="
                             <?php
                                 if($item['status'] == "disetujui"){
                                     echo "";
                                 }
                                 else {
-                                    echo " disabled";
+                                    echo "visibility:hidden;";
                                 }
                             ?>
-                            ">Cetak</button></a>
+                            ">Unduh Surat Peminjaman Barang</button></a>
+
+                            <form action="riwayat/dibatalkan/{{$item['id']}}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-danger" style="
+                                <?php
+                                    if($item['status'] == "proses pengajuan"){
+                                        echo "";
+                                    }
+                                    else {
+                                        echo "visibility:hidden;";
+                                    }
+                                ?>
+                                ">Dibatalkan</button></form>  
+
                         </td>
+                       
+                           
+                        
                     </tr>
                     @endforeach
                     </tbody>
-                    {{--  apr/downloadpf/{{ $item['id'] }}  --}}
                   </table>
             </div>
         </div>
     </section>
-    
+    <script type="text/javascript">
+        //Script for disabling right click on mouse
+        var message="Function Disabled!";
+        function clickdsb(){
+        if (event.button==2){
+        return false;
+        }
+        }
+        function clickbsb(e){
+        if (document.layers||document.getElementById&&!document.all){
+        if (e.which==2||e.which==3){
+        alert(message);
+        return false;
+        }
+        }
+        }
+        if (document.layers){
+        document.captureEvents(Event.MOUSEDOWN);
+        document.onmousedown=clickbsb;
+        }
+        else if (document.all&&!document.getElementById){
+        document.onmousedown=clickdsb;
+        }
         
+        document.oncontextmenu=new Function("return false")
+        
+    </script>
+    
 @endsection
+

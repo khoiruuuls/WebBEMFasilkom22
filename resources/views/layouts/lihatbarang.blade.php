@@ -21,7 +21,7 @@
                 </span>
                 @auth
                 <div class="text logo-text">
-                    <span class="name">{{ Auth::user()->nama }}</span>
+                    <span class="name">{!! Str::limit(Auth::user()->nama, 15) !!}</span>
                     <span class="profession">User</span>
                 </div>
             </div>

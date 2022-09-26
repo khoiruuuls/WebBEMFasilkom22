@@ -33,7 +33,9 @@
                   <table class="table table-bordered table-striped table-md">
                     <thead>
                       <th>#</th>
-                      <th>Nama</th>
+                      <th width="75%">Nama</th>
+                      <th>NPM</th>
+                      <th>Nomor HP</th>
                       <th>Email</th>
                       <th>Prodi</th>
                       <th width="25%">Aksi</th>
@@ -43,6 +45,8 @@
                         <tr>
                           <td>{{ $loop->iteration + $users->firstItem() - 1 }}</td>
                           <td>{{ $user->nama}}</td>
+                          <td>{{ $user->npm}}</td>
+                          <td>{{ $user->no_hp}}</td>
                           <td>{{ $user->email}}</td>
                           <td>{{ $user->prodi}}</td>
                           <td>

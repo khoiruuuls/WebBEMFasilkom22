@@ -66,6 +66,8 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'role:Admin|Huma
         Route::get('bemitory/{id}/edit', 'BemitoryController@edit')->name('bemitory.edit');
         Route::post('bemitory/disetujui/{id}', 'BemitoryController@disetujui')->name('bemitory.disetujui');
         Route::post('bemitory/ditolak/{id}', 'BemitoryController@ditolak')->name('bemitory.ditolak');
+        Route::post('bemitory/dibatalkan/{id}', 'BemitoryController@dibatalkan')->name('bemitory.ditolak');
+        
 
 
         // Event

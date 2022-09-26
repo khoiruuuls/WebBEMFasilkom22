@@ -11,7 +11,7 @@ Route::prefix('pinjam-bem')->namespace('PINJAM')->middleware(['auth:peminjam'])-
        Route::post('/peminjaman/ajukanpeminjaman', 'PeminjamanController@store')->name('pinjam.ajukanpeminjaman');
        Route::get('/riwayat', 'RiwayatController@index')->name('pinjam.riwayat');
        Route::get('/riwayat/downloadpdf/{id}','RiwayatController@exportpdf')->name('pinjam.exportpdf');
-
+       Route::post('/riwayat/dibatalkan/{id}','RiwayatController@dibatalkan')->name('pinjam.dibatalkan');
 //     Route::get('informasi/{slug}', 'PkkmbController@detailInformation')->name('pkkmb.informasi');
 
 //     Route::get('absen', 'PkkmbController@absen')->name('pkkmb.absen');

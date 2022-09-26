@@ -19,7 +19,7 @@
                         <div class="col-lg-6">
                           <label for="">Nama Barang</label>
                           <div class="form-floating">
-                              <select class="form-select" id="floatingSelect" name="barang">
+                              <select class="form-select" id="floatingSelect" name="barang" required>
                                 <option selected>Pilih Barang</option>
                                 @foreach ($items as $item)                                
                                 <option value="{{$item['barang']}}">{{$item['barang']}}</option>
@@ -30,7 +30,7 @@
                             <div class="col-lg-6">
                                 <label for="">Jumlah</label>
                                 <div class="form-floating">
-                                    <select class="form-select" id="floatingSelect" name="jumlah">
+                                    <select class="form-select" id="floatingSelect" name="jumlah" required>
                                         <option selected>Pilih Jumlah</option>
                                         <?php 
                                             for ($x = 1; $x <= 5; $x++) {
@@ -44,7 +44,7 @@
                             <div class="col-lg-12">
                                 <div class="date">
                                     <label for="">Tanggal Pinjam</label>
-                                <input type="date" name="tanggal_pinjam">
+                                <input type="date" name="tanggal_pinjam" required>
                                 </div>
                             </div>
                         </div>
@@ -52,13 +52,19 @@
                             <div class="col-lg-12">
                                 <label for="">Durasi Peminjaman</label>
                                 <div class="col-lg">
-                                    <input class="form-control" type="text" placeholder="Masukkan Angka Saja" name="durasi">
+                                    <input class="form-control" type="text" placeholder="Masukkan Angka Saja" name="durasi" required>
                                     </div>
                                 </div>
                         </div>
                         <div class="row">
                             <div class="tombol-pinjam">
-                                <button type="submit" class="btn btn-success">Ajukan Barang</button>
+                                <button type="submit" class="btn btn-success" onclick="geek()">Ajukan Barang</button>
+                                <script>
+                                    function geek(){
+                                    if (window.confirm("Apakah kamu yakin ingin mengajukan barang ?")) {
+                                        window.alert( "Silahkan unduh peminjaman surat, jika sudah disetujui !");
+                                      }};
+                                </script>
                             </div>
                         </div>
                   </form>
