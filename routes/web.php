@@ -68,6 +68,8 @@ require __DIR__ . '/prepkm.php';
 
 require __DIR__ . '/admin.php';
 
+require __DIR__ . '/pinjam.php';
+
 // require __DIR__ . '/pkkmb.php';
 
 require __DIR__ . '/auth.php';

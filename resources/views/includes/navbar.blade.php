@@ -18,7 +18,7 @@
 				<li><a href="{{ route('filosofi') }}">Logo</a></li>
 			</ul>
 			</li>
-			<li class="dropdown"><a href="#"><i class="bi bi-person-badge mx-2" style="font-size: 1rem"></i><span> Profil</span> <i class="bi bi-chevron-down"></i></a>
+			{{-- <li class="dropdown"><a href="#"><i class="bi bi-person-badge mx-2" style="font-size: 1rem"></i><span> Profil</span> <i class="bi bi-chevron-down"></i></a>
 				<ul>
 					<li><a href="{{ route('bph') }}">Badan Pengurus Harian</a></li>
 					<li class="dropdown"><a href="#"><span>PSDM</span> <i class="bi bi-chevron-right"></i></a>
@@ -50,7 +50,7 @@
 						</ul>
 					</li>
 				</ul>
-			</li>
+			</li> --}}
 			<li><a class="nav-link" href="{{ route('news') }}"><i class="bi bi-newspaper mx-2" style="font-size: 1rem"></i><span>Fasilkom News</span><i class=" bi bi-chevron-down" style="visibility: hidden"></i></a></li>
 			<li><a class="nav-link" href="{{ route('kontak') }}"><i class="bi bi-envelope-open mx-2" style="font-size: 1rem"></i><span>Kontak</span><i class=" bi bi-chevron-down" style="visibility: hidden"></i></a></li>
 			<li><a class="nav-link" href="{{ route('aplikasi') }}"><i class="bi bi-app-indicator mx-2" style="font-size: 1rem"></i><span>Aplikasi Publik</span><i class=" bi bi-chevron-down" style="visibility: hidden"></i></a></li>

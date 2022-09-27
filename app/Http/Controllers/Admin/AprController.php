@@ -8,6 +8,7 @@ use App\Models\Report;
 use Illuminate\Http\Request;
 use App\Models\Pengaduan;
 use Barryvdh\DomPDF\Facade\Pdf;
+use DB;
 
 use Str;
 
@@ -37,11 +38,74 @@ class AprController extends Controller
      */
     public function index()
     {
+        $jumlah_pengaduan = Pengaduan::select(DB::raw("CAST(COUNT(*) as int) as jumlah_pengaduan"))
+        ->GroupBy(DB::raw("Month(created_at)")) 
+        ->pluck('jumlah_pengaduan');
+
+        $perkuliahanac = Pengaduan::select(DB::raw('CAST(COUNT(*) as int) as perkuliahanac'))
+        ->whereRaw("kategori = 'perkuliahan dan akademis'")
+        ->GroupBy(DB::raw("MONTHNAME(created_at)")) 
+        ->pluck('perkuliahanac');
+
+        $rektorat = Pengaduan::select(DB::raw('CAST(COUNT(*) as int) as rektorat'))
+        ->whereRaw("kategori = 'rektorat'")
+        ->GroupBy(DB::raw("MONTHNAME(created_at)")) 
+        ->pluck('rektorat');
+
+        $sistem = Pengaduan::select(DB::raw('CAST(COUNT(*) as int) as sistem'))
+        ->whereRaw("kategori = 'sistem'")
+        ->GroupBy(DB::raw("MONTHNAME(created_at)")) 
+        ->pluck('sistem');
+
+        $infrastruktur = Pengaduan::select(DB::raw('CAST(COUNT(*) as int) as infrastruktur'))
+        ->whereRaw("kategori = 'infrastruktur'")
+        ->GroupBy(DB::raw("MONTHNAME(created_at)")) 
+        ->pluck('infrastruktur');
+
+        $event = Pengaduan::select(DB::raw('CAST(COUNT(*) as int) as event'))
+        ->whereRaw("kategori = 'event'")
+        ->GroupBy(DB::raw("MONTHNAME(created_at)")) 
+        ->pluck('event');
+
+        $ormawa = Pengaduan::select(DB::raw('CAST(COUNT(*) as int) as ormawa'))
+        ->whereRaw("kategori = 'ormawa'")
+        ->GroupBy(DB::raw("MONTHNAME(created_at)")) 
+        ->pluck('ormawa');
+
+        $lainnya = Pengaduan::select(DB::raw('CAST(COUNT(*) as int) as lainnya'))
+        ->whereRaw("kategori = 'lainnya'")
+        ->GroupBy(DB::raw("MONTHNAME(created_at)")) 
+        ->pluck('lainnya');
+
+        $bulan = Pengaduan::select(DB::raw("MONTHNAME(created_at) as bulan"))
+        ->GroupBy(DB::raw("MONTHNAME(created_at)")) 
+        ->pluck('bulan');
+
         $this->data['reports'] = Report::orderBy('created_at', 'DESC')->paginate(5);
         $this->data['pengaduan'] = Pengaduan::orderBy('created_at', 'DESC')->paginate(5);
 
-        return view('pages.admin.apr.index', $this->data);
+        return view('pages.admin.apr.index',compact(
+            'jumlah_pengaduan','bulan','perkuliahanac','rektorat','sistem','infrastruktur','event','ormawa','lainnya'
+        ),$this->data);
     }
+
+    // /**
+    //  * Display a listing of the resource.
+    //  *
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function grafik()
+    // {
+    //     $jumlah_pengaduan = Pengaduan::select(DB::raw("CAST(COUNT(created_at) as int) as jumlah_pengaduan"))
+    //     ->GroupBy(DB::raw("Month(created_at)")) 
+    //     ->pluck('jumlah_pengaduan');
+
+    //     $bulan = Pengaduan::select(DB::raw("MONTHNAME(created_at) as bulan"))
+    //     ->GroupBy(DB::raw("MONTHNAME(created_at)")) 
+    //     ->pluck('bulan');
+
+    //     return view('pages.admin.apr.grafik',compact('jumlah_pengaduan','bulan'));
+    // }
     
 
     // /**
@@ -96,7 +160,9 @@ class AprController extends Controller
      */
     public function show($id)
     {
-        //
+        $this->data['reports'] = Report::findOrFail($id);
+
+        return view('pages.admin.apr.show', $this->data);
     }
 
     /**
@@ -110,9 +176,25 @@ class AprController extends Controller
         $report = Report::findOrFail($id);
 
         $this->data['report'] = $report;
-
+        
         return view('pages.admin.apr.form', $this->data);
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function buatapr($id)
+    {
+        $item = Pengaduan::findOrFail($id);
+
+        $this->data['pengaduan'] = $item;
+        
+        return view('pages.admin.apr.buatapr', $this->data);
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -153,20 +235,20 @@ class AprController extends Controller
         return redirect()->route('apr.index')->with('error', 'Advokasi gagal dihapus');
     }
 
-    public function dikaji($id) {
-        Pengaduan::find($id)->update(['status_pengaduan' => 'dikaji']);
-        return redirect()->route('apr.index');
-    }
+    // public function dikaji($id) {
+    //     Pengaduan::find($id)->update(['status_pengaduan' => 'dikaji']);
+    //     return redirect()->route('apr.index');
+    // }
 
-    public function proses($id) {
-        Pengaduan::find($id)->update(['status_pengaduan' => 'proses']);
-        return redirect()->route('apr.index');
-    }
+    // public function proses($id) {
+    //     Pengaduan::find($id)->update(['status_pengaduan' => 'proses']);
+    //     return redirect()->route('apr.index');
+    // }
 
-    public function selesai($id) {
-        Pengaduan::find($id)->update(['status_pengaduan' => 'selesai']);
-        return redirect()->route('apr.index');
-    }
+    // public function selesai($id) {
+    //     Pengaduan::find($id)->update(['status_pengaduan' => 'selesai']);
+    //     return redirect()->route('apr.index');
+    // }
 
     public function exportpdf(Request $request,$id){
 
@@ -176,5 +258,13 @@ class AprController extends Controller
         return $pdf->download('detail-pengaduan.pdf');
 
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
 
 }

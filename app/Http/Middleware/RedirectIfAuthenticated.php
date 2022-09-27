@@ -22,23 +22,29 @@ class RedirectIfAuthenticated
         $guards = empty($guards) ? [null] : $guards;
 
         $user = Auth::user();
+        // $user = Auth::peminjam();
+        
 
         foreach ($guards as $guard) {
             if (Auth::guard('maba')->check()) {
                 return redirect()->route('pkkmb');
             }
 
+          
+    
             if (Auth::guard($guard)->check()) {
                 if ($user->hasAnyRole('Admin', 'Humas', 'Operator')) {
                     return redirect('admin');
                 } elseif ($user->hasRole('User')) {
                     return redirect()->route('pkm-center');
-                }
-
+                } 
+                // elseif ($user->hasRole('Peminjam')) {
+                // return redirect()->route('pinjam.login');
+                // }
                 // return redirect(RouteServiceProvider::HOME);
             }
         }
-
+    
         return $next($request);
     }
 }

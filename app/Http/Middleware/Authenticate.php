@@ -16,6 +16,8 @@ class Authenticate extends Middleware
     {
         if (!$request->expectsJson()) {
             // return route('pkkmb.login');
+            //  return route('pinjam.login');
+            
             return route('login');
         }
     }

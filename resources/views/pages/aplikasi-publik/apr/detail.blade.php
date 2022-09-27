@@ -27,6 +27,13 @@
 
           <div class="row mb-4">
             <div class="col-md">
+              <h5>Kategori</h5>
+              <p style="text-transform: uppercase;">{!! $report->keterangan !!}</p>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-md">
               <h5>Deskripsi</h5>
               <p>{!! $report->deskripsi !!}</p>
             </div>
@@ -56,14 +63,6 @@
               </ul>
             </div>
           </div>
-
-          <div class="row mb-4">
-            <div class="col-md">
-              <h5>Keterangan</h5>
-              <p>{!! $report->keterangan !!}</p>
-            </div>
-          </div>
-
         </div>
       </div>
 

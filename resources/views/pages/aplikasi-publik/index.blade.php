@@ -45,7 +45,7 @@ Daftar Aplikasi Publik | Kabinet Catralingga
                 </a>
             </div>
             <div class="col-lg-3">
-                <a class="card3" href="{{ route('pinjam') }}">
+                <a class="card3" href="{{ route('bemitory') }}">
                     <h5>Pinjam Inventaris BEM</h5>
                     <div class="dimmer"></div>
                     <div class="go-corner" href="">
@@ -66,7 +66,7 @@ Daftar Aplikasi Publik | Kabinet Catralingga
                     </div>
                 </a>
             </div>
-            <div class="col-lg-3">
+            {{-- <div class="col-lg-3">
                 <a class="card3" href="{{ route('game') }}">
                     <h5>Game</h5>
                     <div class="dimmer"></div>
@@ -76,7 +76,7 @@ Daftar Aplikasi Publik | Kabinet Catralingga
                         </div>
                     </div>
                 </a>
-            </div>
+            </div> --}}
             <div class="col-lg-3">
                 <a class="card3" href="{{ route('mading') }}">
                     <h5>Mading Online</h5>

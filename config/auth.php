@@ -51,6 +51,11 @@ return [
             'driver' => 'session',
             'provider' => 'mabas',
         ],
+
+        'peminjam' => [
+            'driver' => 'session',
+            'provider' => 'peminjams',
+        ],
     ],
 
     /*
@@ -79,6 +84,11 @@ return [
         'mabas' => [
             'driver' => 'eloquent',
             'model' => App\Models\Maba::class,
+        ],
+
+        'peminjams' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Peminjam::class,
         ],
 
         // 'users' => [

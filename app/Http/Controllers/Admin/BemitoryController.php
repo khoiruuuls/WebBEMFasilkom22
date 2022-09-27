@@ -6,7 +6,13 @@ use Str;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BemitoryRequest;
 use App\Models\Bemitory;
+use App\Models\Peminjam;
+use App\Models\Peminjaman;
 use Illuminate\Http\Request;
+use App\Mail\KirimEmail;
+use App\Mail\KirimEmailDisetujui;
+use App\Mail\KirimEmailDitolak;
+use Mail;
 
 class BemitoryController extends Controller
 {
@@ -33,6 +39,7 @@ class BemitoryController extends Controller
     public function index()
     {
         $this->data['bemitory'] = Bemitory::orderBy('id', 'DESC')->paginate(10);
+        $this->data['peminjaman'] = Peminjaman::orderBy('id', 'DESC')->paginate(10);
 
         return view('pages.admin.bemitory.index', $this->data);
     }
@@ -146,4 +153,20 @@ class BemitoryController extends Controller
         Bemitory::find($id)->update(['status_barang' => 'kosong']);
         return redirect()->route('bemitory.index');
     }
+
+    public function disetujui($id) {
+        Peminjaman::find($id)->update(['status' => 'disetujui']);
+         Mail::to('laravelll2022@gmail.com')->send(new KirimEmailDisetujui());
+         return redirect()->route('bemitory.index');
+    }
+
+    public function ditolak($id) {
+        Peminjaman::find($id)->update(['status' => 'ditolak']);
+        Mail::to('laravelll2022@gmail.com')->send(new KirimEmailDitolak());
+        return redirect()->route('bemitory.index');
+}
+    public function dibatalkan($id) {
+        Peminjaman::find($id)->update(['status' => 'dibatalkan']);
+        return redirect()->route('pinjam.dibatalkan');
+}
 }

@@ -26,6 +26,9 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'role:Admin|Huma
         Route::get('proker/{id}/delete', 'ProkerController@destroy')->name('proker.delete');
 
         // Akun
+        Route::resource('peminjam', 'PeminjamController');
+        Route::get('peminjam/{id}/delete', 'PeminjamController@destroy')->name('peminjam.delete');
+
         Route::resource('user', 'UserController');
         Route::get('user/{id}/delete', 'UserController@destroy')->name('user.delete');
 
@@ -52,15 +55,19 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'role:Admin|Huma
         Route::resource('apr', 'AprController');
         Route::get('apr/{id}/delete', 'AprController@destroy')->name('apr.delete');
         Route::post('apr/dikaji/{id}', 'AprController@dikaji')->name('apr.dikaji');
-        Route::post('apr/proses/{id}', 'AprController@proses')->name('apr.proses');
-        Route::post('apr/selesai/{id}', 'AprController@selesai')->name('apr.selesai');
         Route::get('apr/downloadpf/{id}','AprController@exportpdf')->name('exportpdf');
+        Route::get('apr/buatapr/{id}','AprController@buatapr')->name('apr.buatapr');
+        Route::get('apr/detail/{id}','AprController@show')->name('apr.show');
 
 
 
         Route::resource('bemitory', 'BemitoryController');
         Route::get('bemitory/{id}/delete', 'BemitoryController@destroy')->name('bemitory.delete');
         Route::get('bemitory/{id}/edit', 'BemitoryController@edit')->name('bemitory.edit');
+        Route::post('bemitory/disetujui/{id}', 'BemitoryController@disetujui')->name('bemitory.disetujui');
+        Route::post('bemitory/ditolak/{id}', 'BemitoryController@ditolak')->name('bemitory.ditolak');
+        Route::post('bemitory/dibatalkan/{id}', 'BemitoryController@dibatalkan')->name('bemitory.ditolak');
+        
 
 
         // Event

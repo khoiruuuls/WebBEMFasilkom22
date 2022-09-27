@@ -8,7 +8,7 @@
   <div class="main-content">
     <section class="section">
       <div class="section-header">
-        <h1>Program Kerja BEM Fasilkom 2021</h1>
+        <h1>Program Kerja BEM Fasilkom 2022</h1>
         <div class="section-header-breadcrumb">
           <div class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></div>
           <div class="breadcrumb-item active">Proker</div>
@@ -18,7 +18,7 @@
         <div class="col-lg-12 col-md-12 col-12 col-sm-12">
           <div class="card">
             <div class="card-header border-0">
-              <h4>Daftar Program Kerja</h4>
+              <h4>Daftar Program Kerja (LPJ Online)</h4>
               @can('Tambah_Proker')
                 <div class="card-header-action">
                   <a href="{{ route('proker.create') }}" class="btn btn-primary">Tambah</a>

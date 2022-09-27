@@ -32,7 +32,6 @@
                   <div class="table">
                     <div class="table_header">
                         <div>
-          
                         </div>
                     </div>
                         <table class=" table scroll table-striped">
@@ -63,17 +62,84 @@
                           </td>
                                 </tr>
                                 @endforeach
-                                
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-              </div>
+             
+           
+        
+        <div class="row">
+        <div class="col-lg-12 col-md-12 col-12 col-sm-12">
+          <div class="card">
+            <div class="card-header border-0">
+              <h4>Peminjaman Inventory BEM</h4>
             </div>
-          </div>
-        </div>
-      </div>
+            <div class="card-body">
+              @include('includes.admin.flash')
+              <div class="table-responsive">
+                <table class="table table-bordered table-striped mb-0">
+                  <div class="table">
+                    <div class="table_header">
+                        <div>
+                        </div>
+                    </div>
+                        <table class=" table scroll table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Barang</th>
+                                    <th>Jumlah Yang Diajukan</th>
+                                    <th>Durasi Peminjaman</th>
+                                    <th>Tanggal Peminjaman</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($peminjaman as $item)
+                                <tr>
+                                    <td>{{ $item->username }}</td>
+                                    <td>{{ $item->barang }}</td>
+                                    <td>{{ $item->jumlah }}</td>
+                                    <td>{{ $item->tanggal_pinjam }}</td>
+                                    <td>{{ $item->durasi }}</td>
+                                    <td>{{ $item->status }}</td>
+                                    <td>
+                                    <form action="bemitory/disetujui/{{$item['id']}}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success tombol-status mt-1" style="border-radius:25px; <?php
+                                        if($item['status'] == "dibatalkan"){
+                                          echo "visibility:hidden;";
+                                        }
+                                        else {
+                                            echo "";
+                                        }
+                                    ?>
+                                    ">Disetujui</button></form>  
+                                    
+                                    <form action="bemitory/ditolak/{{$item['id']}}" method="POST">
+                                      @csrf
+                                      <button type="submit" class="btn btn-danger tombol-status mt-1" style="border-radius:25px; <?php
+                                      if($item['status'] == "dibatalkan"){
+                                        echo "visibility:hidden;";
+                                      }
+                                      else {
+                                          echo "";
+                                      }
+                                  ?>">Ditolak</button>
+                                  </form>  
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+              </div>           
+              </div>
+              </div>
     </section>
-  </div>
 @endsection

@@ -19,7 +19,6 @@ class CreatePengaduanTable extends Migration
             $table->string('kategori');
             $table->text('judul')->nullable();
             $table->text('isi_pengaduan')->nullable();
-            $table->enum('status_pengaduan',['Dikaji','Proses','Selesai'])->default('Dikaji');
             $table->timestamps();
         });
     }

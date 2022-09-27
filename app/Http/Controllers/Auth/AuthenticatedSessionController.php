@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Models\Maba;
 use App\Models\User;
+use App\Models\Peminjam;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,6 +44,17 @@ class AuthenticatedSessionController extends Controller
     public function createMaba()
     {
         return view('pages.pkkmb.login', $this->data);
+    }
+
+    /**
+     * Display the login view.
+     *
+     * @return \Illuminate\View\View
+     */
+
+    public function createPeminjam()
+    {
+        return view('pages.pinjam-bem.login', $this->data);
     }
 
     /**
@@ -107,6 +119,32 @@ class AuthenticatedSessionController extends Controller
 
         return back()->withInput($request->only('email', 'remember'));
     }
+    
+    public function storePeminjam(LoginRequest $request)
+    {
+        $peminjam = Peminjam::where('email', request('email'))->first();
+        if ($peminjam === null) {
+            return back()->withErrors([
+                'email' => ['Email tidak terdaftar.']
+            ])->withInput();
+        }
+
+        if (!Hash::check($request->password, $peminjam->password)) {
+            return back()->withErrors([
+                'password' => ['Kata sandi yang dimasukkan salah.']
+            ])->withInput();
+        }
+
+        if (Auth::guard('peminjam')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+            
+            $request->session()->regenerate();
+
+            return redirect()->route('pinjam.lihatbarang');
+            
+        }
+
+        return back()->withInput($request->only('email', 'remember'));
+    }
 
     /**
      * Destroy an authenticated session.
@@ -141,5 +179,23 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('pkkmb');
+    }
+
+    /**
+     * Destroy an authenticated session.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroyPeminjam(Request $request)
+    {
+        // dd($request);
+        Auth::guard('peminjam')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('pinjam.login');
     }
 }

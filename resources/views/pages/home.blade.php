@@ -339,7 +339,7 @@ BEM Fasilkom UNSIKA 2022 | Kabinet Catralingga
   </section>
   <!-- End Portfolio Section -->
 
-  <!-- Section Tabel -->
+  {{-- <!-- Section Tabel -->
   <section id="features" class="features">
     <div class="container" data-aos="fade-up">
 
@@ -371,7 +371,7 @@ BEM Fasilkom UNSIKA 2022 | Kabinet Catralingga
           </table>
           
     </div>
-  </section>
+  </section> --}}
 
 </main>
 <!-- End #main -->
