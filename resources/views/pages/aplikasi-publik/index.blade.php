@@ -100,7 +100,7 @@ Daftar Aplikasi Publik | Kabinet Catralingga
                 </a>
             </div>
             <div class="col-lg-3">
-                <a class="card3" href="{{ route('pkm-center') }}">
+                <a class="card3" href="{{ route('prepkm-center') }}">
                     <h5>PKM Center</h5>
                     <div class="dimmer"></div>
                     <div class="go-corner" href="">
