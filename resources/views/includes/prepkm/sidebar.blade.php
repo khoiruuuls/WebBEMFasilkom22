@@ -23,6 +23,9 @@
       <li class="nav-item {{ ($currentPkmMenu == 'pengajuan') ? 'active' : ''}}">
         <a href="{{ route('pengajuan.index') }}" class="nav-link"><i class="bi-journal-text"></i><span>Pengajuan Usul</span></a>
       </li>
+      <li class="nav-item {{ ($currentPkmMenu == 'konsultasi') ? 'active' : ''}}">
+        <a href="#" class="nav-link"><i class="bi-chat-dots"></i><span>Konsultasi PKM</span></a>
+      </li>
     </ul>
   </aside>
 </div>

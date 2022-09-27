@@ -74,6 +74,7 @@
         <ul class="dropdown-menu">
           <li class="{{ ($currentAdminSubMenu == 'program') ? 'active' : ''}}"><a class="nav-link" href="{{ route('program.index') }}">Program</a></li>
           <li class="{{ ($currentAdminSubMenu == 'pengumuman') ? 'active' : ''}}"><a class="nav-link" href="{{ route('pengumuman.index') }}">Pengumuman</a></li>
+          <li class="{{ ($currentAdminSubMenu == 'preview') ? 'active' : ''}}"><a class="nav-link" href="{{ route('preview.index') }}">Proposal Lama</a></li>
           <li class="{{ ($currentAdminSubMenu == 'pengusul') ? 'active' : ''}}"><a class="nav-link" href="{{ route('pengusul.index') }}">Pengusul</a></li>
         </ul>
       </li>

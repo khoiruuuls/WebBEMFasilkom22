@@ -1,4 +1,4 @@
-@extends('layouts.pkm')
+@extends('layouts.prepkm')
 
 @section('title')
   PKM Centre - Beranda
@@ -10,6 +10,26 @@
     <section class="section">
       <div class="section-header">
         <h1>Beranda</h1>
+      </div>
+
+      <h2 class="section-title">Petunjuk Untuk Membuat Akun PKM-Center</h2>
+      <div class="row">
+        <div class="col mb-4">
+          <div class="owl-carousel owl-theme program">
+
+              <div class="item">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">File Petunjuk</h5>
+                    <p class="card-text">File Berbentuk PDF</p>
+                    <p class="card-text">Dapat Dilihat Dengan Mengklik Read More Di Bawah</p>
+                    <a href="{{ asset('storage/uploads/pdf/PKMC_user.pdf') }}" class="float-right">Read More <i class="fas fa-chevron-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
       </div>
 
       <h2 class="section-title">Program</h2>
@@ -96,14 +116,11 @@
             @forelse ($previews as $preview)
               <div class="item">
                 <div class="card">
-                  {{-- <a href="{{ route('preview-detail', $preview->slug) }}">
-                    <img src="{{ (empty($preview->path) ? asset('pkm/assets/img/news/img13.jpg') : asset('storage/' . $preview->path)) }}" alt="" class="card-img-top">
-                  </a> --}}
                   <div class="card-body">
                     <h5 class="card-title">{{ $preview->judul }}</h5>
                     <p class="card-text">{{ $preview->bidang }}</p>
                     <p class="card-text">{{ $preview->tim }}</p>
-                    <a href="{{ asset('storage/' . $preview->path) }}" class="float-right" target="_blank">Read More <i class="fas fa-chevron-right"></i></a>
+                    <a href="{{ asset('storage/' . $preview->path) }}" class="float-right">Read More <i class="fas fa-chevron-right"></i></a>
                   </div>
                 </div>
               </div>

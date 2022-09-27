@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\PKM;
+namespace App\Http\Controllers\PREPKM;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pengumuman;
@@ -21,8 +21,6 @@ class BerandaController extends Controller
 
         $this->data['currentPkmMenu'] = 'beranda';
         $this->data['currentPkmSubMenu'] = '';
-
-        $this->middleware(['role:User', 'verified']);
     }
 
     /**
@@ -36,7 +34,7 @@ class BerandaController extends Controller
         $this->data['pengumumans'] = Pengumuman::all();
         $this->data['previews'] = Preview::all();
 
-        return view('pages.aplikasi-publik.pkm.beranda.index', $this->data);
+        return view('pages.aplikasi-publik.prepkm.beranda.index', $this->data);
     }
 
     /**
@@ -76,7 +74,7 @@ class BerandaController extends Controller
 
         $this->data['program'] = $program;
 
-        return view('pages.aplikasi-publik.pkm.beranda.detail', $this->data);
+        return view('pages.aplikasi-publik.prepkm.beranda.detail', $this->data);
     }
 
     public function show_pengumuman($slug)
@@ -89,7 +87,7 @@ class BerandaController extends Controller
 
         $this->data['pengumuman'] = $pengumuman;
 
-        return view('pages.aplikasi-publik.pkm.beranda.pengumuman.detail', $this->data);
+        return view('pages.aplikasi-publik.prepkm.beranda.pengumuman.detail', $this->data);
     }
 
     /**

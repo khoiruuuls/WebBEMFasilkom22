@@ -100,6 +100,10 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'role:Admin|Huma
         Route::resource('pengumuman', 'PengumumanController');
         Route::get('pengumuman/{id}/delete', 'PengumumanController@destroy')->name('pengumuman.delete');
 
+        // Preview
+        Route::resource('preview', 'PreviewController');
+        Route::get('preview/{id}/delete', 'PreviewController@destroy')->name('preview.delete');
+
         // User PKM
         Route::resource('pengusul', 'PengusulController');
         Route::get('pengusul/{id}/delete', 'PengusulController@destroy')->name('pengusul.delete');
