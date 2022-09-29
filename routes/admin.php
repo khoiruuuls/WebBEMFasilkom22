@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'role:Admin|Humas|Operator'])->group(function () {
     Route::get('/', 'DashboardController@index')->name('dashboard');
 
+    Route::resource('weeklyreport', 'WeeklyreportController');
+
+    Route::resource('controling', 'ControlingController');
+
     // Struktur
     Route::prefix('data')->group(function () {
         Route::get('struktur', 'StrukturController@index')->name('admin.struktur');

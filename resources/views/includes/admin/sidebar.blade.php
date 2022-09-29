@@ -15,6 +15,9 @@
       <li class="nav-item {{ ($currentAdminMenu == 'dashboard') ? 'active' : ''}}">
         <a class="nav-link" href="{{ route('dashboard') }}"><i class="bi-grid"></i><span>Dashboard</span></a>
       </li>
+      <li class="nav-item {{ ($currentAdminMenu == 'weeklyreport') ? 'active' : ''}}">
+        <a class="nav-link" href="{{ route('weeklyreport.index') }}"><i class="bi-file-earmark-person"></i><span>Weekly Report</span></a>
+      </li>
       <li class="menu-header">Data</li>
       <li class="nav-item dropdown {{ ($currentAdminMenu == 'struktur') ? 'active' : ''}}">
         <a class="nav-link has-dropdown"><i class="bi-diagram-3"></i> <span>Struktur</span></a>
@@ -79,6 +82,9 @@
           <li class="{{ ($currentAdminSubMenu == 'preview') ? 'active' : ''}}"><a class="nav-link" href="{{ route('preview.index') }}">Proposal Lama</a></li>
           <li class="{{ ($currentAdminSubMenu == 'pengusul') ? 'active' : ''}}"><a class="nav-link" href="{{ route('pengusul.index') }}">Pengusul</a></li>
         </ul>
+      </li>
+      <li class="nav-item {{ ($currentAdminMenu == 'controling') ? 'active' : ''}}">
+        <a class="nav-link" href="{{ route('controling.index') }}"><i class="bi-file-earmark-person"></i><span>Cek Laporan Anggota</span></a>
       </li>
     </ul>
   </aside>
