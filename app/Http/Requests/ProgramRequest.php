@@ -26,7 +26,7 @@ class ProgramRequest extends FormRequest
         $id = (int) $this->get('id');
         $konten = 'required';
         $tanggal = 'required';
-        $image = 'image|mimes:jpeg,png,jpg,gif|max:2048';
+        $image = 'image|mimes:jpeg,png,jpg,gif|max:8120';
 
         if ($this->method() == 'PUT') {
             $judul = 'required|unique:program,judul,' . $id;
@@ -55,7 +55,7 @@ class ProgramRequest extends FormRequest
     public function messages()
     {
         return [
-            'image.max' => 'Ukuran maksimum file harus 2MB.',
+            'image.max' => 'Ukuran maksimum file harus 5MB.',
             'image.image' => 'File harus berupa gambar.',
         ];
     }

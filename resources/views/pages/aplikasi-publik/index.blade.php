@@ -110,6 +110,17 @@ Daftar Aplikasi Publik | Kabinet Catralingga
                     </div>
                 </a>
             </div>
+            <div class="col-lg-3">
+                <a class="card3" href="{{ route('game') }}">
+                    <h5>Game Cari Kata</h5>
+                    <div class="dimmer"></div>
+                    <div class="go-corner" href="">
+                        <div class="go-arrow">
+                            <i class="bi bi-house"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
             {{-- <div class="col-lg-3">
                 <a class="card3" href="{{ route('fasilkom-cup') }}">
                     <h5>Fasilkom Cup</h5>
