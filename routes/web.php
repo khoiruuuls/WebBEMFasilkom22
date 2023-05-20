@@ -55,9 +55,9 @@ Route::get('bidang/kominfo/media', 'KominfoController@media')->name('media');
 Route::get('bidang/kominfo/pti', 'KominfoController@pti')->name('pti');
 Route::get('bidang/kominfo/humas', 'KominfoController@humas')->name('humas');
 
-Route::get('/clear-cache', function () { 
-    Artisan::call('cache:clear'); 
-    return "Cache dibersihkan"; 
+Route::get('/clear-cache', function () {
+    Artisan::call('cache:clear');
+    return "Cache dibersihkan";
 });
 
 require __DIR__ . '/aplikasi.php';
